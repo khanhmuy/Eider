@@ -1,33 +1,22 @@
-const Command = require('../../Structures/Command')
-const { get } = require('axios')
-const { MessageEmbed } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
+const axios = require('axios');
+const { MessageEmbed } = require('discord.js');
 
-class Meme extends Command {
-  constructor (client) {
-    const commandBuilder = new SlashCommandBuilder()
-      .setName('meme')
-      .setDescription('Replies with a random meme from r/dankmemes.')
-    super(client, commandBuilder)
-
-    this.data = commandBuilder
-  }
-
-  async run (client, interaction) {
-    let res = await get('https://Reddit.com/r/memes/random.json')
-
-    if (await res.data[0].data.children[0].data.over_18 === true) res = await get('https://Reddit.com/r/dankmemes/random.json')
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setTitle(`${await res.data[0].data.children[0].data.title}`)
-      .setImage(`${await res.data[0].data.children[0].data.url}`)
-      .setFooter(`Author: u/${await res.data[0].data.children[0].data.author}`)
-      .setURL(`https://reddit.com${await res.data[0].data.children[0].data.permalink}`)
-    await interaction.reply({ embeds: [embed] })
-  }
-}
-
-module.exports = Meme
-
-// axios.get('https://Reddit.com/r/memes/random.json')
+module.exports = {
+	name: 'meme',
+	description: 'Send a random meme!',
+	cooldown: 5,
+	usage: 'meme',
+	aliases: [ 'givememe', 'gibmeme', 'plsmeme', 'memes' ],
+	async execute(client, message) {
+		axios.get('https://meme-api.herokuapp.com/gimme/1')
+			.then(function(response) {
+				const embed = new MessageEmbed()
+					.setColor('RANDOM')
+					.setTitle(response.data.memes[0].title)
+					.setImage(response.data.memes[0].url)
+					.setURL(response.data.memes[0].postLink)
+					.setFooter(`Author: ${response.data.memes[0].author}`);
+				message.channel.send({ embeds: [embed] });
+			});
+	},
+};

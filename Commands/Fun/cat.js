@@ -1,27 +1,22 @@
-const Command = require('../../Structures/Command')
-const { get } = require('axios')
-const { MessageEmbed } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
-
-class Cat extends Command {
-  constructor (client) {
-    const commandBuilder = new SlashCommandBuilder()
-      .setName('cat')
-      .setDescription('Replies with an adorable cat 😺!')
-    super(client, commandBuilder)
-
-    this.data = commandBuilder
-  }
-
-  async run (client, interaction) {
-    const res = await get('https://aws.random.cat/meow')
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setTitle('Meow! Here\'s your adorable cat picture 🐱.')
-      .setImage(`${await res.data.file}`)
-    await interaction.reply({ embeds: [embed] })
-  }
-}
-
-module.exports = Cat
+const axios = require('axios');
+const { MessageEmbed } = require('discord.js');
+module.exports = {
+    name: 'cat',
+    description: 'Sends a random cat image!',
+    usage: 'cat',
+    cooldown: 5,
+    aliases: [ 'kitty', 'kitten', 'kitties' ],
+    async execute(client, message) {
+        let embed = '';
+        axios.get('https://aws.random.cat/meow')
+        .then(function(response) {
+            embed = new MessageEmbed()
+            .setColor('BLUE')
+            .setTimestamp()
+            .setImage(response.data.file)
+            .addField('Requested by ', message.author.username)
+            .setFooter('OP: ' + response.data.file)
+        message.reply({ embeds: [embed] });
+        })
+    },
+};
