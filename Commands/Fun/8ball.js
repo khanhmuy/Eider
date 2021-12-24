@@ -31,7 +31,7 @@ module.exports = {
         const answer = Math.floor(Math.random() * answers.length)
         let $question = args[0]
         const embed = new MessageEmbed()
-            .setColor('#050505')
+            .setColor('RANDOM')
             .setTitle('**Magic 8-Ball**')
             .setDescription(`**Our Magic 8-Ball Says**: ${answers[answer]}`)
         message.reply({ embeds: [embed] });
