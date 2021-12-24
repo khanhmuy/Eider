@@ -12,8 +12,9 @@ module.exports = {
             message.reply('Please provide a video id!');
         } else {
             const id = args[0];
+            const wait = await message.channel.send('Getting video info...');
             axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id)
-            .then(function(response) {
+            .then(async response => {
                 embed = new MessageEmbed()
                 .setTitle(`Video info of ` + id)
                 .setColor('#FFC0DD')
@@ -25,6 +26,7 @@ module.exports = {
                     { name: 'Likes', value: "" + response.data.likes, inline: true },
                     { name: 'Ratio', value: "" + response.data.rating, inline: true },
                 )
+            wait.delete();
             message.reply({ embeds: [embed] });
             })
         }

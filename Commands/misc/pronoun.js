@@ -17,6 +17,7 @@ module.exports = {
         } if (args[0].match(/<@!*&*[0-9]+>/)) {
             id = args[0].split("!")[1].split(">")[0];
         }
+        const wait = await message.channel.send('Fetching pronoun...');
         axios.get('https://pronoundb.org/api/v1/lookup?platform=discord&id=' + id)
         .then(async response => {
             if (response.data.pronouns.match('unspecified')) {
@@ -61,6 +62,7 @@ module.exports = {
                 pronoun = 'Avoid pronouns, use my name.'
             }
             let replyMention = '<@!' + id + '>';
+            wait.delete();
             const embed = new MessageEmbed()
                 .setColor('#FFC0DD')
                 .setTitle(`PronounDB`)
@@ -70,7 +72,7 @@ module.exports = {
             setTimeout(() => {
                 message.delete();
                 reply.delete();
-            }, 2500);
+            }, 25000);
         })
     },
 };
