@@ -7,7 +7,6 @@ module.exports = {
     cooldown: 5,
     aliases: [ 'pronoundb', 'pronounDB', 'Pronoundb', 'PronounDB' ],
     async execute(client, message, args) {
-        let embed = '';
         let pronoun = '';
         let tag = '';
         if (!args[0]) {
@@ -19,7 +18,7 @@ module.exports = {
             id = args[0].split("!")[1].split(">")[0];
         }
         axios.get('https://pronoundb.org/api/v1/lookup?platform=discord&id=' + id)
-        .then(function(response) {
+        .then(async response => {
             if (response.data.pronouns.match('unspecified')) {
                 pronoun = 'unspecified';
             } if (response.data.pronouns.match('hh')) {
@@ -62,12 +61,16 @@ module.exports = {
                 pronoun = 'Avoid pronouns, use my name.'
             }
             let replyMention = '<@!' + id + '>';
-            embed = new MessageEmbed()
+            const embed = new MessageEmbed()
                 .setColor('#FFC0DD')
                 .setTitle(`PronounDB`)
                 .setDescription('Pronouns of ' + replyMention + ' is: ' + pronoun)
                 .setTimestamp()
-            message.reply({ embeds: [embed] });
+            const reply = await message.channel.send({ embeds: [embed] });
+            setTimeout(() => {
+                message.delete();
+                reply.delete();
+            }, 2500);
         })
     },
 };
