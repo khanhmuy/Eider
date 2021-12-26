@@ -1,7 +1,8 @@
 # eider_hmuy
 Fun Discord Bot
 
-## Prerequisites: Nodejs: 16.13 or newer
+## Prerequisites: 
+- Nodejs: 16.13 or newer
 
 ## Setup: 
 - Step 1: Clone this repository
@@ -12,4 +13,4 @@ Fun Discord Bot
 - Enjoy!
 
 ## Acknowledgements: 
-- [CallMeEcho](https://github.com/CallMeEchoCodes) and (llsc12)[https://github.com/llsc12] for helping me a lot with the code, js stuff, etc 
+- [CallMeEcho](https://github.com/CallMeEchoCodes) and [llsc12](https://github.com/llsc12) for helping me a lot with the code, js stuff, etc 
