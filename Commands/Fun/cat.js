@@ -4,7 +4,7 @@ module.exports = {
     name: 'cat',
     description: 'Sends a random cat image!',
     usage: 'cat',
-    cooldown: 5,
+    cooldown: 2,
     aliases: [ 'kitty', 'kitten', 'kitties' ],
     async execute(client, message) {
         let embed = '';

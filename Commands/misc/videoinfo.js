@@ -4,7 +4,7 @@ module.exports = {
     name: 'videoinfo',
     description: 'Get the information of a youtube video',
     usage: 'videoinfo [video_id]',
-    cooldown: 5,
+    cooldown: 2,
     aliases: ['videoinfo', 'ytvidinfo', 'vidinfo'],
     async execute(client, message, args) {
         let embed = '';

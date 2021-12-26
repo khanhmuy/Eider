@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'meme',
 	description: 'Send a random meme!',
-	cooldown: 5,
+	cooldown: 2,
 	usage: 'meme',
 	aliases: [ 'givememe', 'gibmeme', 'plsmeme', 'memes' ],
 	async execute(client, message) {

@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'echo',
 	description: 'make me say something stupid ig',
-	cooldown: 2,
+	cooldown: 1,
 	usage: 'echo <channel> <message>',
 	async execute(client, message, args) {
 		if (!args[0]) {

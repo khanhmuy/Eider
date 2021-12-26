@@ -3,7 +3,7 @@ module.exports = {
 	name: 'avatar',
 	description: 'Get the avatar of a user',
 	usage: 'avatar [user]',
-	cooldown: 5,
+	cooldown: 2,
 	aliases:[ 'av', 'pfp', 'avt', 'getavatar', 'getpfp', 'getavt' ],
 	async execute(client, message, args) {
 		let embed = '';

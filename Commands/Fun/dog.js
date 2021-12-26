@@ -4,7 +4,7 @@ module.exports = {
     name: 'dog',
     description: 'Sends a random dog image!',
     usage: 'dog',
-    cooldown: 5,
+    cooldown: 2,
     aliases: [ 'doggo', 'puppy' ],
     async execute(client, message) {
         const wait = await message.channel.send('Fetching...');
