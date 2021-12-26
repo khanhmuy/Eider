@@ -29,7 +29,6 @@ module.exports = {
             'Very doubtful.'
         ]
         const answer = Math.floor(Math.random() * answers.length)
-        let $question = args[0]
         const embed = new MessageEmbed()
             .setColor('RANDOM')
             .setTitle('**Magic 8-Ball**')

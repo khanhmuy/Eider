@@ -7,6 +7,7 @@ module.exports = {
     cooldown: 5,
     aliases: [ 'doggo', 'puppy' ],
     async execute(client, message) {
+        const wait = await message.channel.send('Fetching...');
         let embed = '';
         axios.get('https://dog.ceo/api/breeds/image/random')
         .then(function(response) {
@@ -15,7 +16,8 @@ module.exports = {
             .setTimestamp()
             .setImage(response.data.message)
             .addField('Requested by ', message.author.username)
-            .setFooter('OP: ' + response.data.message)
+            .setFooter('Source: ' + response.data.message)
+        wait.delete();
         message.reply({ embeds: [embed] });
         })
     },

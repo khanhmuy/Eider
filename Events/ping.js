@@ -15,6 +15,10 @@ module.exports = {
 				.addFields(
 					{ name: 'To get started:', value: 'Use `' + prefix + 'help` to see all my commands.' },
 					{ name: 'Invite link:', value: 'https://tiny.cc/eider_hmuy'},
+					{ name: 'Source code:', value: 'https://github.com/khanhmuy/eider_hmuy'},
+					{ name: 'hmuy\'s twitter:', value: 'https://twitter.com/hmuy0608', inline: true },
+					{ name: 'hmuy\'s github:', value: 'https://github.com/khanhmuy', inline: true },
+					{ name: 'Special thanks to:', value: '[llsc12](https://github.com/llsc12) for helping when hmuy is dumb, and to CallMeEcho for creating this bot in the first place.' }
 				)
 			message.channel.send({ embeds: [ embed ] });
 		}

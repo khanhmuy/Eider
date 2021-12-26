@@ -8,6 +8,7 @@ module.exports = {
 	usage: 'meme',
 	aliases: [ 'givememe', 'gibmeme', 'plsmeme', 'memes' ],
 	async execute(client, message) {
+		const wait = await message.channel.send('Fetching...');
 		axios.get('https://meme-api.herokuapp.com/gimme/1')
 			.then(function(response) {
 				const embed = new MessageEmbed()
@@ -16,6 +17,7 @@ module.exports = {
 					.setImage(response.data.memes[0].url)
 					.setURL(response.data.memes[0].postLink)
 					.setFooter(`Author: ${response.data.memes[0].author}`);
+				wait.delete();
 				message.channel.send({ embeds: [embed] });
 			});
 	},

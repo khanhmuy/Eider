@@ -8,6 +8,7 @@ module.exports = {
     aliases: [ 'kitty', 'kitten', 'kitties' ],
     async execute(client, message) {
         let embed = '';
+        const wait = await message.channel.send('Fetching...');
         axios.get('https://aws.random.cat/meow')
         .then(function(response) {
             embed = new MessageEmbed()
@@ -15,7 +16,8 @@ module.exports = {
             .setTimestamp()
             .setImage(response.data.file)
             .addField('Requested by ', message.author.username)
-            .setFooter('OP: ' + response.data.file)
+            .setFooter('Source: ' + response.data.file)
+        wait.delete();
         message.reply({ embeds: [embed] });
         })
     },
