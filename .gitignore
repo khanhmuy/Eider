@@ -12,3 +12,6 @@ thumbs.db
 # Config Files
 /data
 .env
+
+# launch file
+bot.cmd

@@ -6,7 +6,7 @@ module.exports = {
 	name: 'help',
 	description: 'Help Command',
 	usage: 'help [command]',
-	cooldown: 5,
+	cooldown: 2,
 	async execute(client, message, args) {
 		const prefix = client.data.get(`guild.${message.guild.id}.prefix`);
 		if (!args[0]) {

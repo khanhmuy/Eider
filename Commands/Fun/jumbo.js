@@ -10,13 +10,13 @@ module.exports = {
         const msg = args[0].match(/<a?:.+:\d+>/gm)
         let url = '';
         if (emoji = /<:.+:(\d+)>/gm.exec(msg)) {
-            url = "https://cdn.discordapp.com/emojis/" + emoji[1] + ".png?v=1"
+            url = "https://cdn.discordapp.com/emojis/" + emoji[1] + ".png?v=1?size=1500";
         } else if (emoji = /<a:.+:(\d+)>/gm.exec(msg)) {
-            url = "https://cdn.discordapp.com/emojis/" + emoji[1] + ".gif?v=1"
+            url = "https://cdn.discordapp.com/emojis/" + emoji[1] + ".gif?v=1?size=1500";
         } 
         if (url) {
-            message.channel.send(url)
-            message.delete
+            message.delete();
+            message.channel.send(url);
         } if (!url) {
             message.reply('Invalid emoji!, might be a Unicode emoji')
         }
