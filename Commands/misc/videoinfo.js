@@ -22,18 +22,26 @@ module.exports = {
                 const views = info.data.videoDetails.viewCount;
                 const title = info.data.videoDetails.title;
                 const channel = info.data.videoDetails.ownerChannelName;
+                const channelUrl = info.data.videoDetails.author.channel_url;
+                const subs = info.data.videoDetails.author.subscriber_count;
                 const uploadDate = dislike.data.dateCreated;
+                const thumbnail = info.data.videoDetails.thumbnails[3].url;
+                const videoDownloadLink = "http://llsc12.ml/api/v2/download?url=https://www.youtube.com/watch?v=" + id;
+                const audioDownloadLink = "http://llsc12.ml/api/v2/audio?url=https://youtu.be/" + id;
                 embed = new MessageEmbed()
                     .setTitle('Video info of ' + title)
                     .setColor('#FFC0DD')
+                    .setImage(thumbnail)
                     .setTimestamp()
                     .addFields(
                         { name: 'Date created: ', value: "" + uploadDate },
                         { name: 'Views:', value: "" + views, inline: true },
                         { name: 'Likes:', value: "" + likeCount, inline: true },
                         { name: 'Dislikes:', value: "" + dislikeCount, inline: true },
-                        { name: 'Channel: ', value: "" + channel },
-                        { name: 'Video link: ', value: "https://www.youtube.com/watch?v=" + id }
+                        { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
+                        { name: 'Subscribers: ', value: "" + subs , inline: true },
+                        { name: 'Video link: ', value: "https://www.youtube.com/watch?v=" + id },
+                        { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
                     .setFooter('Requested by: ' + message.author.username),
                     wait.delete();

@@ -15,3 +15,5 @@ thumbs.db
 
 # launch file
 bot.cmd
+
+package-lock.json
