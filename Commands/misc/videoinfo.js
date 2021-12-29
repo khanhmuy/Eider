@@ -3,16 +3,23 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'videoinfo',
     description: 'Get the information of a youtube video',
-    usage: 'videoinfo [video_id]',
+    usage: 'videoinfo [video_id] or [url]',
     cooldown: 2,
     aliases: ['videoinfo', 'ytvidinfo', 'vidinfo'],
     async execute(client, message, args) {
-        let embed = '';
         if (!args[0]) {
             message.reply('Please provide a video id!');
         } else {
             let embed = '';
-            const id = args[0];
+            let id = ';'
+            if (args[0].match(/https:\/\/www.youtube.com\/watch\?v=./)) {
+                id = args[0].slice(32);
+                console.log(id);
+            } if (args[0].match(/https:\/\/youtu.be\/./)) {
+                id = args[0].slice('https://youtu.be/'.length);
+            } if (!args[0].match(/https:\/\/www.youtube.com\/watch\?v=./) && !args[0].match(/https:\/\/youtu.be\/./)) {
+                id = args[0];
+            }
             const wait = await message.channel.send('Getting video info...');
             try {
                 const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
