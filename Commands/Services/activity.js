@@ -1,22 +1,24 @@
+// i have literally nothing else to add pls send help
 const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
-    name: 'cat',
-    description: 'Sends a random cat image!',
-    usage: 'cat',
+    name: 'activity',
+    description: 'Sends a random activity for you to do!',
+    usage: 'activity',
     cooldown: 2,
-    aliases: [ 'kitty', 'kitten', 'kitties' ],
+    aliases: [ 'activities' ],
     async execute(client, message) {
         let embed = '';
         const wait = await message.channel.send('Fetching...');
-        axios.get('https://aws.random.cat/meow')
+        axios.get('https://www.boredapi.com/api/activity/')
         .then(function(response) {
             embed = new MessageEmbed()
+                .setTitle('Activity for you:')
                 .setColor('BLUE')
+                .setDescription(response.data.activity)
+                .addField('Type:', response.data.type)
+                .setFooter('Requested by ' + message.author.username)
                 .setTimestamp()
-                .setImage(response.data.file)
-                .addField('Requested by ', message.author.username)
-                .setFooter('Source: ' + response.data.file)
         wait.delete();
         message.reply({ embeds: [embed] });
         })

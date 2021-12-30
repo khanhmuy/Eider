@@ -20,5 +20,8 @@ module.exports = {
         wait.delete();
         message.reply({ embeds: [embed] });
         })
+        .catch(function(error) {
+            message.reply('Something went wrong, try again later.');
+        })
     },
 };
