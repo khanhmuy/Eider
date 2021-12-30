@@ -14,7 +14,6 @@ module.exports = {
             let id = ';'
             if (args[0].match(/https:\/\/www.youtube.com\/watch\?v=./)) {
                 id = args[0].slice(32);
-                console.log(id);
             } if (args[0].match(/https:\/\/youtu.be\/./)) {
                 id = args[0].slice('https://youtu.be/'.length);
             } if (!args[0].match(/https:\/\/www.youtube.com\/watch\?v=./) && !args[0].match(/https:\/\/youtu.be\/./)) {
@@ -36,7 +35,7 @@ module.exports = {
                 const videoDownloadLink = "http://llsc12.ml/api/v2/download?url=https://www.youtube.com/watch?v=" + id;
                 const audioDownloadLink = "http://llsc12.ml/api/v2/audio?url=https://youtu.be/" + id;
                 embed = new MessageEmbed()
-                    .setTitle('Video info of ' + title)
+                    .setTitle('Video info of ' + '"' + title + '"')
                     .setColor('#FFC0DD')
                     .setImage(thumbnail)
                     .setTimestamp()
@@ -50,7 +49,7 @@ module.exports = {
                         { name: 'Video link: ', value: "https://www.youtube.com/watch?v=" + id },
                         { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
-                    .setFooter('Requested by: ' + message.author.username),
+                    .setFooter('Requested by: ' + message.author.username + ' | Powered by: llsc12.ml and returnyoutubedislike.com');
                     wait.delete();
                     message.reply({ embeds: [embed] });
             }

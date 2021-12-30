@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 module.exports = {
-    name: 'Credits',
+    name: 'credits',
     description: 'Acknowledgements of people who have helped me in the development of this bot.',
     aliases: ['credits', 'acknowledgements', 'credit'],
     usage: 'credits',
@@ -10,7 +10,7 @@ module.exports = {
         embed = new MessageEmbed()
             .setTitle('Credits')
             .setDescription('I would like to thank people who helped me in the development of this bot.')
-            .setColor('#FFC0DD')
+            .setColor('#AEC6CF')
             .setTimestamp()
             .addFields(
                 { name: '[CallMeEcho](https://github.com/CallMeEchoCodes)', value: 'The creator of this bot, who also helped me a lot in the early stages of learning Discord bot development.' },
