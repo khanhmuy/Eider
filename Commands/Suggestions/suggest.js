@@ -26,6 +26,10 @@ module.exports = {
 			embedMessage.react('⬆️');
 			embedMessage.react('⬇️');
 		});
-		message.channel.send(`Suggestion #${suggestionnum} submitted!`);
+		message.delete();
+		const sent = await message.channel.send(`Suggestion #${suggestionnum} submitted!`);
+		setTimeout(function(){
+			sent.delete();
+		}, 4000);
 	},
 };

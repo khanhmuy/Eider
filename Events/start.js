@@ -5,11 +5,10 @@ module.exports = {
 		client.user.setPresence({
 			status: 'online',
 			activity: {
-				name: 'Eider Alpha - !help (When i add it)',
+				name: 'your mom',
 				type: 'PLAYING',
 			},
 		});
-
-		console.log(`Logged in as ${client.user.tag} 🚀!`);
+		console.log(`Logged in as ${client.user.tag}!`);
 	},
 };

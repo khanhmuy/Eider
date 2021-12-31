@@ -5,7 +5,7 @@ module.exports = {
 	on: true,
 	execute(client, message) {
 		// Set Prefix
-		client.data.ensure(`guild.${message.guild.id}.prefix`, '!');
+		client.data.ensure(`guild.${message.guild.id}.prefix`, ',');
 
 		const prefix = client.data.get(`guild.${message.guild.id}.prefix`);
 

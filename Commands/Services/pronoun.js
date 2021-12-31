@@ -74,5 +74,8 @@ module.exports = {
                 reply.delete();
             }, 25000);
         })
+        .catch(function(error) {
+            message.reply('Something went wrong, try again later.');
+        })
     },
 };
