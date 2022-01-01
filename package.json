@@ -6,14 +6,18 @@
   "author": "CallMeEcho",
   "license": "MIT",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/voice": "^0.7.5",
     "@google-cloud/translate": "^6.3.1",
     "axios": "^0.21.2",
     "chalk": "^4.1.2",
     "discord.js": "^13.0.1",
     "dotenv": "^10.0.0",
     "enmap": "^5.8.7",
+    "ffmpeg-static": "^4.4.0",
     "moment": "^2.29.1",
-    "systeminformation": "^5.8.0"
+    "systeminformation": "^5.8.0",
+    "ytdl-core": "^4.9.2"
   },
   "devDependencies": {
     "eslint": "^7.31.0"

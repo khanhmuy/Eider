@@ -1,0 +1,47 @@
+[
+    {
+        "name": "with users",
+        "type": "PLAYING",
+        "status": "online"
+    },
+    {
+        "name": "harassing hmuy",
+        "type": "PLAYING",
+        "status": "online"
+    },
+    {
+        "name": "to podcasts",
+        "type": "LISTENING",
+        "status": "idle"
+    },
+    {
+        "name": "in F1",
+        "type": "COMPETING",
+        "status": "dnd"
+    },
+    {
+        "name": "with my cat",
+        "type": "PLAYING",
+        "status": "idle"
+    }, 
+    {
+        "name": "oh my fucking god why aren't nfts and cryptos illegal",
+        "type": "PLAYING",
+        "status": "online"
+    },
+    {
+        "name": "dipshits",
+        "type": "WATCHING",
+        "status": "online"
+    },
+    {
+        "name": "i hate school",
+        "type": "PLAYING",
+        "status": "online"
+    },
+    {
+        "name": "doing homework goddammit",
+        "type": "PLAYING",
+        "status": "dnd"
+    }
+]

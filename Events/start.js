@@ -2,13 +2,23 @@ module.exports = {
 	name: 'ready',
 	once: 'true',
 	async execute(client) {
-		client.user.setPresence({
+		client.user.setStatus({
 			status: 'online',
-			activity: {
-				name: 'your mom',
-				type: 'PLAYING',
-			},
 		});
-		console.log(`Logged in as ${client.user.tag}!`);
+		client.user.setActivity('Just got started up!');
+		console.log(`Connection established (${client.ws.ping}ms). Connected as ${client.user.username}#${client.user.discriminator} (${client.user.id})`)
+		setInterval(() => {
+			let now = require('./../status.json')[Math.floor(Math.random() * require('./../status.json').length)]
+			if (!now.status) now.status = 'dnd';
+			if (now.url) {
+			  client.user.setStatus({
+				status: now.status,
+			  })
+			  client.user.setActivity(now.name)
+			}
+			console.log(now.name)
+			console.log(now.type)
+			console.log(now.status)
+		}, 15000)
 	},
 };

@@ -32,21 +32,26 @@ module.exports = {
                 const subs = info.data.videoDetails.author.subscriber_count;
                 const uploadDate = dislike.data.dateCreated;
                 const thumbnail = info.data.videoDetails.thumbnails[3].url;
+                const link = 'https://www.youtube.com/watch?v=' + id;
+                const rawDescription = info.data.videoDetails.description;
+                const description = rawDescription.slice(0, 995) + ' (...)';
                 const videoDownloadLink = "http://llsc12.ml/api/v2/download?url=https://www.youtube.com/watch?v=" + id;
                 const audioDownloadLink = "http://llsc12.ml/api/v2/audio?url=https://youtu.be/" + id;
                 embed = new MessageEmbed()
-                    .setTitle('Video info of ' + '"' + title + '"')
+                    .setTitle('' + title)
                     .setColor('#FFC0DD')
-                    .setImage(thumbnail)
+                    .setURL(link)
+                    .setThumbnail(thumbnail)
                     .setTimestamp()
                     .addFields(
                         { name: 'Date created: ', value: "" + uploadDate },
                         { name: 'Views:', value: "" + views, inline: true },
                         { name: 'Likes:', value: "" + likeCount, inline: true },
                         { name: 'Dislikes:', value: "" + dislikeCount, inline: true },
+                        { name: 'Description:', value: '' + description},
                         { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
                         { name: 'Subscribers: ', value: "" + subs , inline: true },
-                        { name: 'Video link: ', value: "https://www.youtube.com/watch?v=" + id },
+                        { name: 'Video link: ', value: '' + link },
                         { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
                     .setFooter('Requested by: ' + message.author.username + ' | Powered by: llsc12.ml and returnyoutubedislike.com');

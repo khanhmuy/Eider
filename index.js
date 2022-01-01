@@ -2,6 +2,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const chalk = require('chalk');
 const fs = require('fs');
 const Enmap = require('enmap');
+const { Server } = require('http');
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 async function error(err) {
