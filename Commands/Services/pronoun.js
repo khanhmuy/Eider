@@ -7,10 +7,15 @@ module.exports = {
     cooldown: 5,
     aliases: [ 'pronoundb', 'pronounDB', 'Pronoundb', 'PronounDB' ],
     async execute(client, message, args) {
+        let id = '';
         let pronoun = '';
-        let tag = '';
         if (!args[0]) {
-            message.reply('Please provide a user!');
+            return message.reply('Please provide a user!').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 5000);
+            });
         }
         if (!args[0].match(/<@!*&*[0-9]+>/)) {
             id = args[0];
@@ -72,7 +77,7 @@ module.exports = {
             setTimeout(() => {
                 message.delete();
                 reply.delete();
-            }, 25000);
+            }, 20000);
         })
         .catch(function(error) {
             message.reply('Something went wrong, try again later.');
