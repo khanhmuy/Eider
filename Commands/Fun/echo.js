@@ -16,6 +16,9 @@ module.exports = {
 		} else if(!args[0].match(/<#[0-9]+>/)) {
 			message.channel.send(args.join(' '));
 			message.react('✅');
+			setTimeout(() => {
+                message.delete();
+            }, 5000);
 		} else {
 			if(!args[0].match(/<#[0-9]+>/) && args[1]) {
 				message.channel.send('You didnt specify a channel!');
@@ -26,6 +29,9 @@ module.exports = {
 				sendChannel.send(message);
 			};
 			message.react('✅');
+			setTimeout(() => {
+                message.delete();
+            }, 5000);
 		}
 	},
 };

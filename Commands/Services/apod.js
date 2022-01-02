@@ -9,6 +9,7 @@ module.exports = {
     async execute(client, message) {
         let embed = '';
         const apikey = process.env.NASA_API_KEY
+        // if no api key is supplied, use the demo key (rate limited)
         if (apikey === undefined) {key = 'DEMO_KEY'}
         else {key = apikey}
         const wait = await message.channel.send('Fetching...');

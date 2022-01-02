@@ -9,7 +9,7 @@ Fun Discord Bot
 - Step 2: Create an application and get the bot token (save it somewhere but **DO NOT SHARE WITH ANYONE**)
 - Step 3: Create a file named `.env` with the content of `DISCORD_TOKEN=YOURBOTTOKEN` (replace `YOURBOTTOKEN` with the token from step 2. Optionally, you can also put your NASA OpenAPI key in for apod (Astronomy Picture of the Day). 
 - Step 4: Open a terminal window, cd to the folder where the repo is saved and type `npm i`
-- Step 5: Type `node .` or `node index.js`
+- Step 5: Type `node .` or `node index.js`, or if you want to be fancy, install `nodemon` and use `nodemon index.js`
 - Enjoy!
 
 ## Acknowledgements: 
