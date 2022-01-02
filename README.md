@@ -1,5 +1,6 @@
 # eider_hmuy
-Fun Discord Bot
+Fun Discord bot I guess
+[Invite link](https://tiny.cc/eider_hmuy) (if the loaded page is blank, try refreshing the page)
 
 ## Prerequisites: 
 - Nodejs: 16.13 or newer
@@ -14,3 +15,5 @@ Fun Discord Bot
 
 ## Acknowledgements: 
 - [CallMeEcho](https://github.com/CallMeEchoCodes) and [llsc12](https://github.com/llsc12) for helping me a lot with the code, js stuff, etc 
+- [CallMeEcho](https://github.com/CallMeEchoCodes) for creating this bot in the first place (this is a fork of it btw)
+- APIs used in this bot: [PronounDB](https://pronoundb.org), [NASA's OpenAPIs](https://api.nasa.gov/), [Inspiration API](https://inspiration.goprogram.ai/), [Urban Dictionary API](https://www.urbandictionary.com/), [Useless Facts API](https://uselessfacts.jsph.pl/random.json?language=en), [Bored API](https://www.boredapi.com/api/activity/), [Return Youtube Dislikes API](https://returnyoutubedislike.com) and [llsc12.ml](https://llsc12.ml)
