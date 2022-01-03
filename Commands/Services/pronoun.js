@@ -19,8 +19,15 @@ module.exports = {
         }
         if (!args[0].match(/<@!*&*[0-9]+>/)) {
             id = args[0];
+            console.log(id);
         } if (args[0].match(/<@!*&*[0-9]+>/)) {
-            id = args[0].split("!")[1].split(">")[0];
+            id = message.mentions.users.first();
+            if (id === undefined) {return message.channel.send('Please provide a valid user!').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 5000);
+            })}
         }
         const wait = await message.channel.send('Fetching pronoun...');
         axios.get('https://pronoundb.org/api/v1/lookup?platform=discord&id=' + id)

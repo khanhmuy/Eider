@@ -14,11 +14,9 @@ module.exports = {
 				.setColor('BLURPLE')
 				.addFields(
 					{ name: 'To get started:', value: 'Use `' + prefix + 'help` to see all my commands.' },
-					{ name: 'Invite link:', value: 'https://tiny.cc/eider_hmuy'},
-					{ name: 'Source code:', value: 'https://github.com/khanhmuy/eider_hmuy'},
-					{ name: 'hmuy\'s twitter:', value: 'https://twitter.com/hmuy0608', inline: true },
-					{ name: 'hmuy\'s github:', value: 'https://github.com/khanhmuy', inline: true },
+					{ name: 'Links', value: '[Invite](https://tiny.cc/eider_hmuy) | [Source code](https://github.com/khanhmuy/eider_hmuy)' }
 				)
+				.setFooter('this bot, along with everything hmuy makes is a bodge so uhhhhhhhhhhh-')
 			message.channel.send({ embeds: [ embed ] });
 		}
 	},

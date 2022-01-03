@@ -54,7 +54,7 @@ module.exports = {
                         { name: 'Video link: ', value: '' + link },
                         { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
-                    .setFooter('Requested by: ' + message.author.username + ' | Powered by: llsc12.ml and returnyoutubedislike.com');
+                    .setFooter('Requested by: ' + message.author.username + ' at');
                     wait.delete();
                     message.reply({ embeds: [embed] });
             }
