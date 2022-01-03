@@ -28,29 +28,10 @@ module.exports = {
 				.setFooter(`Don't have nitro? Use ${prefix}${commandName} <url> <emojiname> \nAdd single emojis fast? Use ${prefix}${commandName} <emoji>`);
 			message.channel.send({ embeds: [embed] });
 		} else if (args[0].includes('https://')) {
-			if (!args[1]) return message.channel.send({ embeds: [deniedEmbed('You need to specify a name when adding emojis via url')] }).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
-			if (message.guild.emojis.cache.find(emoji => emoji.name == args[1])) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${args[1]}: already exists`)] }).then (x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
-			message.guild.emojis.create(args[0], args[1]).catch(err => message.channel.send({ embeds: [deniedEmbed(`There was an unknown issue. \n${err}`)] })).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
+			if (!args[1]) return message.channel.send({ embeds: [deniedEmbed('You need to specify a name when adding emojis via url')] })
+			if (message.guild.emojis.cache.find(emoji => emoji.name == args[1])) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${args[1]}: already exists`)] });
+			message.guild.emojis.create(args[0], args[1]).catch(err => { return message.channel.send({ embeds: [deniedEmbed(`There was an unknown issue. \n${err}`)] })});
 			confirm = await message.channel.send(`Stolen :${args[1]}:`);
-			setTimeout(() => {
-                message.delete();
-				confirm.delete();
-            }, 5000);
 		}
 		if (!args[1] && args[0]) {
 			const msg = args[0].match(/<a?:.+:\d+>/gm);
@@ -61,33 +42,13 @@ module.exports = {
 			} else if (emoji == /<a:.+:(\d+)>/gm.exec(msg)) {
 				url = 'https://cdn.discordapp.com/emojis/' + emoji[1] + '.gif?v=1';
 			}
-			if (!emoji) return message.channel.send({ embeds: [deniedEmbed('There was no emoji found.')] }).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
-			if (!emoji[0]) return message.channel.send({ embeds: [deniedEmbed('There was an unknown issue.')] }).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
+			if (!emoji) return message.channel.send({ embeds: [deniedEmbed('There was no emoji found.')] })
+			if (!emoji[0]) return message.channel.send({ embeds: [deniedEmbed('There was an unknown issue.')] });
 			let sliceamount = 2;
 			if (emoji[0].slice(1, 2) == 'a') sliceamount = 3;
 			const emojiname = emoji[0].slice(sliceamount, (emoji[0].search(emoji[1])) - 1);
-			if (message.guild.emojis.cache.find(emote => emote.name == emojiname)) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${emojiname}: already exists`)] }).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
-			message.guild.emojis.create(url, emojiname).catch(err => {message.channel.send({ embeds: [deniedEmbed(`An error has occurred. \n${err}`)] });}).then(x => {
-				setTimeout(() => {
-					message.delete();
-					x.delete();
-				}, 5000);
-			});
+			if (message.guild.emojis.cache.find(emote => emote.name == emojiname)) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${emojiname}: already exists`)] });
+			message.guild.emojis.create(url, emojiname).catch(err => {message.channel.send({ embeds: [deniedEmbed(`An error has occurred. \n${err}`)] });});
 			message.channel.send(`Stolen :${emojiname}:`);
 		}
 	},

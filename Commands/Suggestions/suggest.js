@@ -20,7 +20,6 @@ module.exports = {
 			.setDescription(args)
 			.setColor('BLUE')
 			.setAuthor(message.author.tag, message.author.avatarURL());
-		client.data.set('guild.${message.guild.id}.suggestion.' + suggestionnum, args);
 		const channel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.suggestChannel`));
 		channel.send({ embeds: [embed] }).then(embedMessage => {
 			embedMessage.react('⬆️');
