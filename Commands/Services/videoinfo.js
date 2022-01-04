@@ -39,7 +39,7 @@ module.exports = {
                 const audioDownloadLink = "http://llsc12.ml/api/v2/audio?url=https://youtu.be/" + id;
                 embed = new MessageEmbed()
                     .setTitle('' + title)
-                    .setColor('#FFC0DD')
+                    .setColor('#FF0000')
                     .setURL(link)
                     .setThumbnail(thumbnail)
                     .setTimestamp()
@@ -54,7 +54,7 @@ module.exports = {
                         { name: 'Video link: ', value: '' + link },
                         { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
-                    .setFooter('Requested by: ' + message.author.username + ' at');
+                    .setFooter('Requested by: ' + message.author.username);
                     wait.delete();
                     message.reply({ embeds: [embed] });
             }

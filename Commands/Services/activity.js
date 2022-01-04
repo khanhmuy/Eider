@@ -14,7 +14,7 @@ module.exports = {
         .then(function(response) {
             embed = new MessageEmbed()
                 .setTitle('Activity for you:')
-                .setColor('BLUE')
+                .setColor('#6BA3FF')
                 .setDescription(response.data.activity)
                 .addField('Type:', response.data.type)
                 .setFooter('Requested by ' + message.author.username)

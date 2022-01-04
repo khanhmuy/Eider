@@ -76,7 +76,7 @@ module.exports = {
             let replyMention = '<@!' + id + '>';
             wait.delete();
             const embed = new MessageEmbed()
-                .setColor('#FFC0DD')
+                .setColor('#262626')
                 .setTitle(`PronounDB`)
                 .setDescription('Pronouns of ' + replyMention + ' is: ' + pronoun)
                 .setTimestamp()

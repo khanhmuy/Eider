@@ -16,7 +16,7 @@ module.exports = {
         axios.get('https://api.nasa.gov/planetary/apod?api_key=' + key)
         .then(function (response) {
             embed = new MessageEmbed()
-                .setColor('BLUE')
+                .setColor('#105BD8')
                 .setTimestamp()
                 .setTitle(response.data.title)
                 .setImage(response.data.url)

@@ -39,7 +39,7 @@ module.exports = {
 												const totalSeconds = (client.uptime / 1000);
 												const uptime = convToDays(totalSeconds);
 												const embed = new Discord.MessageEmbed()
-													.setColor('RANDOM')
+													.setColor('GREEN')
 													.setTitle(`System & Process Information for ${client.user.username}`)
 													.setURL('https://discord.gg/fNPn8wa6J7')
 													.setTimestamp()

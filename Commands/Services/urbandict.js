@@ -25,7 +25,7 @@ module.exports = {
                     { name: 'Thumbs down', value: '' + data.list[0].thumbs_down, inline: true },
                     { name: 'Link', value: '' + data.list[0].permalink }
                 )
-                .setColor('BLUE')
+                .setColor('#EFFF00')
                 .setFooter('Requested by ' + message.author.username)
                 .setTimestamp();
             wait.delete();

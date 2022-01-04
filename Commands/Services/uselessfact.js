@@ -14,7 +14,7 @@ module.exports = {
             source = '[' + response.data.source + '](' + response.data.source_url + ')';
             embed = new MessageEmbed()
                 .setTitle('Useless fact:')
-                .setColor('BLUE')
+                .setColor('#1EAEDB')
                 .setDescription(response.data.text)
                 .addField('Source:', source)
                 .setFooter('Requested by ' + message.author.username)
