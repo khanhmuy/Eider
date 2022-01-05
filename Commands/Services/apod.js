@@ -22,7 +22,6 @@ module.exports = {
                 .setImage(response.data.url)
                 .setDescription(response.data.explanation)
                 .addField('Image link:', '' + response.data.hdurl)
-                .setFooter('Requested by ' + message.author.username)
             wait.delete();
             message.reply({ embeds: [embed] });
         })

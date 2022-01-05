@@ -33,7 +33,7 @@ module.exports = {
                             { name: 'Bundle ID', value: '' + info.data.data[0].identifier, inline: true },
                             { name: 'Repository', value: '' + info.data.data[0].repository.uri },
                         )
-                        .setFooter('Requested by ' + message.author.username)
+                        .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                         .setColor('#17A8FF');
                     wait.delete();
                     message.reply({ embeds: [embed] });

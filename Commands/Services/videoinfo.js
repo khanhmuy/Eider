@@ -54,7 +54,7 @@ module.exports = {
                         { name: 'Video link: ', value: '' + link },
                         { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
-                    .setFooter('Requested by: ' + message.author.username);
+                    .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     wait.delete();
                     message.reply({ embeds: [embed] });
             }

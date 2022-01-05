@@ -26,7 +26,7 @@ module.exports = {
                     { name: 'Link', value: '' + data.list[0].permalink }
                 )
                 .setColor('#EFFF00')
-                .setFooter('Requested by ' + message.author.username)
+                .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp();
             wait.delete();
             message.reply({ embeds: [embed] });

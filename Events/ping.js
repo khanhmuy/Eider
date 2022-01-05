@@ -3,7 +3,7 @@ module.exports = {
 	name: 'messageCreate',
 	execute(client, message) {
 		if (!message.guild || message.author.bot) return;
-		client.data.ensure(`guild.${message.guild.id}.prefix`, '!');
+		client.data.ensure(`guild.${message.guild.id}.prefix`, ',');
 
 		const prefix = client.data.get(`guild.${message.guild.id}.prefix`);
 		if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) {

@@ -17,7 +17,7 @@ module.exports = {
                 .setColor('#1EAEDB')
                 .setDescription(response.data.text)
                 .addField('Source:', source)
-                .setFooter('Requested by ' + message.author.username)
+                .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
             wait.delete();
             message.reply({ embeds: [embed] });
