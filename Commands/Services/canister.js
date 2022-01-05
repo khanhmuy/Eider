@@ -15,18 +15,17 @@ module.exports = {
                 const query = input.split(' ').join('%20');
                 const info = await axios.get('https://api.canister.me/v1/community/packages/search?query=' + query);
                 if (!info.data.data[0]) {
+                    wait.delete();
                     message.reply('No results found!').then(x => {
                         setTimeout(() => {
-                            wait.delete();
                             message.delete();
                             x.delete();
-                        }, 5000);
+                        }, 4000);
                     });
                 } else {
                     const embed = new MessageEmbed()
                         .setTitle(info.data.data[0].name)
                         .setDescription(info.data.data[0].description)
-                        .setThumbnail(info.data.data[0].packageIcon)
                         .setTimestamp()
                         .addFields(
                             { name: 'Author', value: '' + info.data.data[0].author, inline: true },
