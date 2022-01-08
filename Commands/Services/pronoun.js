@@ -19,7 +19,6 @@ module.exports = {
         }
         if (!args[0].match(/<@!*&*[0-9]+>/)) {
             id = args[0];
-            console.log(id);
         } if (args[0].match(/<@!*&*[0-9]+>/)) {
             id = message.mentions.users.first();
             if (id === undefined) {return message.channel.send('Please provide a valid user!').then(x => {

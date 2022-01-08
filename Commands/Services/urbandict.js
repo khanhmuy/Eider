@@ -8,17 +8,28 @@ module.exports = {
     aliases: ['ud', 'urbandictionary', 'urban'],
     async execute(client, message, args) {
         try {
-            if (!args[0]) return message.reply('Please enter a search query!');
+            if (!args[0]) return message.reply('Please enter a search query!').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 5000);
+            });
             const input = '' + args
             const query = input.split(' ').join('%20');
             const wait = await message.channel.send('Searching...');
             const url = `http://api.urbandictionary.com/v0/define?term=${query}`;
             const { data } = await axios.get(url);
-            if (!data.list[0]) return message.reply('No results found!');
+            if (!data.list[0]) return message.reply('No results found!').then(x => {
+                wait.delete();
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 5000);
+            });
             const embed = new MessageEmbed()
                 .setTitle(`Urban Dictionary: ${data.list[0].word}`)
-                .setDescription(data.list[0].definition)
                 .addFields(
+                    { name: 'Defniition', value: '' + data.list[0].definition, inline: true },
                     { name: 'Example', value: '' + data.list[0].example },
                     { name: 'Author', value: '' + data.list[0].author, inline: true },
                     { name: 'Thumbs up', value: '' + data.list[0].thumbs_up, inline: true },

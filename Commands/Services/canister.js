@@ -10,19 +10,19 @@ module.exports = {
         const wait = await message.channel.send('Fetching info...');
         if (!args[0]) {message.reply('Please provide a query!');}
         else {
-            try {
-                const input = '' + args;
-                const query = input.split(' ').join('%20');
-                const info = await axios.get('https://api.canister.me/v1/community/packages/search?query=' + query);
-                if (!info.data.data[0]) {
-                    wait.delete();
-                    message.reply('No results found!').then(x => {
-                        setTimeout(() => {
-                            message.delete();
-                            x.delete();
-                        }, 4000);
-                    });
-                } else {
+            const input = '' + args;
+            const query = input.split(' ').join('%20');
+            const info = await axios.get('https://api.canister.me/v1/community/packages/search?query=' + query);
+            if (!info.data.data[0]) {
+                wait.delete();
+                message.reply('No results found!').then(x => {
+                    setTimeout(() => {
+                        message.delete();
+                        x.delete();
+                    }, 4000);
+                });
+            } else {
+                try {
                     const embed = new MessageEmbed()
                         .setTitle(info.data.data[0].name)
                         .setDescription(info.data.data[0].description)
@@ -37,11 +37,15 @@ module.exports = {
                         .setColor('#17A8FF');
                     wait.delete();
                     message.reply({ embeds: [embed] });
+                } catch {
+                    wait.delete();
+                    message.reply('An error occurred!').then(x => {
+                        setTimeout(() => {
+                            message.delete();
+                            x.delete();
+                        },4000);
+                    }); 
                 }
-            } catch {
-                message.delete();
-                wait.delete();
-                message.reply('An error occured! Please try again later!');
             }
         }
     },
