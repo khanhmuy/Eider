@@ -24,7 +24,7 @@ module.exports = {
                 setTimeout(() => {
                     message.delete();
                     x.delete();
-                }, 5000);
+                }, 4000);
             });
             const embed = new MessageEmbed()
                 .setTitle(`Urban Dictionary: ${data.list[0].word}`)
@@ -42,7 +42,12 @@ module.exports = {
             wait.delete();
             message.reply({ embeds: [embed] });
         } catch {
-            message.reply('An error occured! Please try again later!');
+            message.reply('An error occured! Please try again later!').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 4000);
+            });
         }
     },
 };

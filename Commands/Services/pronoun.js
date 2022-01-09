@@ -86,7 +86,12 @@ module.exports = {
             }, 20000);
         })
         .catch(function(error) {
-            message.reply('Something went wrong, try again later.');
+            message.reply('Something went wrong, try again later.').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 4000);
+            });
         })
     },
 };

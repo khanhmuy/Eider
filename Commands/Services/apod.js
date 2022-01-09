@@ -26,7 +26,12 @@ module.exports = {
             message.reply({ embeds: [embed] });
         })
         .catch(function (error) {
-            message.reply('There was an error fetching the image. Please try again later.');
+            message.reply('There was an error loading the image. Please try again later.').then (x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 4000);
+            });
           })
     },
 };

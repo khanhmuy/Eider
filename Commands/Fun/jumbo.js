@@ -7,7 +7,12 @@ module.exports = {
     usage: 'jumbo <emoji> (must be a Discord emoji)',
     aliases: ['jumboemoji', 'jumboemote', 'bigemote', 'bigemoji'],
     async execute(client, message, args) {
-        if (!args[0]) return message.reply('Emoji not found!');
+        if (!args[0]) return message.reply('Emoji not found!').then(x => {
+            setTimeout(() => {
+                message.delete();
+                x.delete();
+            }, 4000);
+        });
         const msg = args[0].match(/<a?:.+:\d+>/gm)
         let url = '';
         if (emoji = /<:.+:(\d+)>/gm.exec(msg)) {

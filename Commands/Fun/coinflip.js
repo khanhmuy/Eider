@@ -7,6 +7,6 @@ module.exports = {
 	async execute(client, message) {
 		const flip = ['heads', 'tails'];
 		const result = flip[Math.floor(Math.random() * flip.length)];
-		message.channel.send(`It's ${result}!`);
+		message.reply(`It's ${result}!`);
 	},
 };
