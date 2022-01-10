@@ -33,7 +33,7 @@ module.exports = {
 				setTimeout(() => {
 					message.delete();
 					x.delete();
-				}, 5000);
+				}, 4000);
 			});
 		}
 	},

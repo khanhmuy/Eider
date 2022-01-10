@@ -31,7 +31,12 @@ module.exports = {
 			if (!args[1]) return message.channel.send({ embeds: [deniedEmbed('You need to specify a name when adding emojis via url')] })
 			if (message.guild.emojis.cache.find(emoji => emoji.name == args[1])) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${args[1]}: already exists`)] });
 			message.guild.emojis.create(args[0], args[1]).catch(err => { return message.channel.send({ embeds: [deniedEmbed(`There was an unknown issue. \n${err}`)] })});
-			confirm = await message.channel.send(`Stolen :${args[1]}:`);
+			message.reply(`Stolen :${args[1]}:`).then(x => {
+				setTimeout(() => {
+					message.delete();
+					x.delete();
+				}, 4000);
+			});
 		}
 		if (!args[1] && args[0]) {
 			const msg = args[0].match(/<a?:.+:\d+>/gm);
@@ -49,7 +54,12 @@ module.exports = {
 			const emojiname = emoji[0].slice(sliceamount, (emoji[0].search(emoji[1])) - 1);
 			if (message.guild.emojis.cache.find(emote => emote.name == emojiname)) return message.channel.send({ embeds: [deniedEmbed(`An emoji with the name :${emojiname}: already exists`)] });
 			message.guild.emojis.create(url, emojiname).catch(err => {message.channel.send({ embeds: [deniedEmbed(`An error has occurred. \n${err}`)] });});
-			message.channel.send(`Stolen :${emojiname}:`);
+			message.reply(`Stolen :${emojiname}:`).then(x => {
+				setTimeout(() => {
+					message.delete();
+					x.delete();
+				}, 4000);
+			});
 		}
 	},
 };
