@@ -14,7 +14,7 @@ module.exports = {
 				.setColor('BLURPLE')
 				.addFields(
 					{ name: 'To get started:', value: 'Use `' + prefix + 'help` to see all my commands.' },
-					{ name: 'Links', value: '[Invite](https://tiny.cc/eider_hmuy) | [Source code](https://github.com/khanhmuy/eider_hmuy)' }
+					{ name: 'Links', value: '[Invite](https://hmuy.ml/eider) | [Source code](https://github.com/khanhmuy/eider_hmuy)' }
 				)
 			message.channel.send({ embeds: [ embed ] });
 		}
