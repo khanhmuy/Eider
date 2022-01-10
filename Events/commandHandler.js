@@ -4,14 +4,14 @@ module.exports = {
 	name: 'messageCreate',
 	on: true,
 	execute(client, message) {
-		// Set Prefix
+		// Set prefix
 		client.data.ensure(`guild.${message.guild.id}.prefix`, ',');
 
 		const prefix = client.data.get(`guild.${message.guild.id}.prefix`);
 
 		if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-		// Define command And args
+		// Define command and args
 		let args = message.content.slice(prefix.length).split(/ +/);
 		const commandName = args.shift().toLowerCase();
 
@@ -26,18 +26,18 @@ module.exports = {
 			console.log('Can no longer store commands!');
 		}
 
-		// Args System
+		// Args system
 		const usage = `\`${prefix + command.usage}\``;
 		if (command.args && !args.length) return message.reply(`That command requires arguments! The correct usage is: ${usage}`);
 		if (command.args && !args[command.args - 1] && command.args != 'full') return message.reply(`That command requires ${command.args} arguments! The correct usage is: ${usage}`);
 		if (command.args === 'full') args = message.content.slice(prefix.length).slice(commandName.length);
 
-		// Check If Command Is Guild Only
+		// Check if command is guild Only
 		if (command.guildOnly === true && message.guild === null) {
 			return message.reply('That command is guild only!');
 		}
 
-		// Permissions System
+		// Permissions system
 		if (command.permissions) {
 			console.log(message.member.permissions.has(command.permissions));
 			if (message.member.permissions.has(command.permissions) === false) {
@@ -45,7 +45,7 @@ module.exports = {
 			}
 		}
 
-		// Cooldowns System
+		// Cooldowns system
 		const { cooldowns } = client;
 		if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Collection());
 		const now = Date.now();
@@ -71,7 +71,11 @@ module.exports = {
 				.setThumbnail('https://images-ext-1.discordapp.net/external/9yiAQ7ZAI3Rw8ai2p1uGMsaBIQ1roOA4K-ZrGbd0P_8/https/cdn1.iconfinder.com/data/icons/web-essentials-circle-style/48/delete-512.png?width=461&height=461')
 				.setColor('RED')
 				.setTimestamp();
-			message.channel.send({ embeds: [embed] });
+			message.channel.send({ embeds: [embed] }).then(x => {
+				setTimeout(() => {
+					x.delete();
+				}, 9000);
+			});
 		}
 	},
 };

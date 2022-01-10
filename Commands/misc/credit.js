@@ -10,7 +10,7 @@ module.exports = {
         embed = new MessageEmbed()
             .setTitle('Credits')
             .setDescription('I would like to thank people who helped me in the development of this bot.')
-            .setColor('BLURPLE')
+            .setColor('#C0DDFF')
             .setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
             .setTimestamp()
             .addFields(

@@ -11,7 +11,7 @@ module.exports = {
 		const prefix = client.data.get(`guild.${message.guild.id}.prefix`);
 		if (!args[0]) {
 			const embed = new MessageEmbed()
-				.setColor('BLURPLE')
+				.setColor('#C0DDFF')
 				.setTitle('Commands')
 				.setDescription(`Run \`${prefix}help [command]\` to see command info.`)
 				.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
@@ -72,7 +72,7 @@ module.exports = {
 				.setDescription(command.description)
 				.addField('Aliases', aliases, true)
 				.addField('Usage', usage, true)
-				.setColor('BLURPLE');
+				.setColor('#C0DDFF');
 
 			message.channel.send({ embeds: [embed] });
 		}

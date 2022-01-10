@@ -21,7 +21,7 @@ module.exports = {
 		const commandName = message.content.slice(prefix.length).split(' ').shift().toLowerCase();
 		if (!args[0]) {
 			const embed = new MessageEmbed()
-				.setTitle('Emoji Steal')
+				.setTitle('Emoji stealer')
 				.setColor('ORANGE')
 				.setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
 				.setDescription('Add reactions to this message to add them to your server')
