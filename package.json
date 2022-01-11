@@ -17,7 +17,7 @@
     "ffmpeg-static": "^4.4.0",
     "moment": "^2.29.1",
     "systeminformation": "^5.8.0",
-    "ytdl-core": "^4.9.2"
+    "ytdl-core": "^4.10.0"
   },
   "devDependencies": {
     "eslint": "^7.31.0"

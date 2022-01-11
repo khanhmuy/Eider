@@ -1,3 +1,4 @@
+const ytdl = require('ytdl-core');
 const axios = require('axios');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
@@ -21,22 +22,21 @@ module.exports = {
             }
             const wait = await message.channel.send('Getting video info...');
             try {
+                const info = await ytdl.getInfo(id);
+                console.log(info.videoDetails);
                 const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
                 const dislikeCount = dislike.data.dislikes
-                const info = await axios.get('https://llsc12.ml/api/v1/getInfo?url=https://youtu.be/' + id);
-                const likeCount = info.data.videoDetails.likes;
-                const views = info.data.videoDetails.viewCount;
-                const title = info.data.videoDetails.title;
-                const channel = info.data.videoDetails.ownerChannelName;
-                const channelUrl = info.data.videoDetails.author.channel_url;
-                const subs = info.data.videoDetails.author.subscriber_count;
+                const likeCount = info.videoDetails.likes;
+                const views = info.videoDetails.viewCount;
+                const title = info.videoDetails.title;
+                const channel = info.videoDetails.ownerChannelName;
+                const channelUrl = info.videoDetails.author.channel_url;
+                const subs = info.videoDetails.author.subscriber_count;
                 const uploadDate = dislike.data.dateCreated;
-                const thumbnail = info.data.videoDetails.thumbnails[3].url;
+                const thumbnail = info.videoDetails.thumbnails[3].url;
                 const link = 'https://www.youtube.com/watch?v=' + id;
-                const rawDescription = info.data.videoDetails.description;
+                const rawDescription = info.videoDetails.description;
                 const description = rawDescription.slice(0, 995) + ' (...)';
-                const videoDownloadLink = "http://llsc12.ml/api/v2/download?url=https://www.youtube.com/watch?v=" + id;
-                const audioDownloadLink = "http://llsc12.ml/api/v2/audio?url=https://youtu.be/" + id;
                 embed = new MessageEmbed()
                     .setTitle('' + title)
                     .setColor('#FF0000')
@@ -52,13 +52,13 @@ module.exports = {
                         { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
                         { name: 'Subscribers: ', value: "" + subs , inline: true },
                         { name: 'Video link: ', value: '' + link },
-                        { name: 'Download links:', value: '[Video](' + videoDownloadLink + ') | [Audio](' + audioDownloadLink + ')', inline: true }
                     )
                     .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     wait.delete();
                     message.reply({ embeds: [embed] });
             }
             catch (error) {
+                console.log(error);
                 wait.delete();
                 message.reply('An error occurred! Please double check your video id!')
             }

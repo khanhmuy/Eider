@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['8ball', '8b'],
     async execute(client, message, args) {
         const answers = [
-            'It is Certain.',
+            'It is certain.',
             'It is decidedly so.',
             'Without a doubt.',
             'Yes definitely.',

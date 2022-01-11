@@ -2152,10 +2152,10 @@
     "y18n" "^5.0.5"
     "yargs-parser" "^20.2.2"
 
-"ytdl-core@^4.9.2":
-  "integrity" "sha512-aTlsvsN++03MuOtyVD4DRF9Z/9UAeeuiNbjs+LjQBAiw4Hrdp48T3U9vAmRPyvREzupraY8pqRoBfKGqpq+eHA=="
-  "resolved" "https://registry.npmjs.org/ytdl-core/-/ytdl-core-4.9.2.tgz"
-  "version" "4.9.2"
+"ytdl-core@^4.10.0":
+  "integrity" "sha512-RCCoSVTmMeBPH5NFR1fh3nkDU9okvWM0ZdN6plw6I5+vBBZVUEpOt8vjbSgprLRMmGUsmrQZJhvG1CHOat4mLA=="
+  "resolved" "https://registry.npmjs.org/ytdl-core/-/ytdl-core-4.10.0.tgz"
+  "version" "4.10.0"
   dependencies:
     "m3u8stream" "^0.8.4"
     "miniget" "^4.0.0"
