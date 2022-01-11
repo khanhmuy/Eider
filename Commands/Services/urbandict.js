@@ -12,7 +12,7 @@ module.exports = {
                 setTimeout(() => {
                     message.delete();
                     x.delete();
-                }, 5000);
+                }, 4000);
             });
             const input = '' + args
             const query = input.split(' ').join('%20');
@@ -27,13 +27,14 @@ module.exports = {
                 }, 4000);
             });
             const embed = new MessageEmbed()
-                .setTitle(`Urban Dictionary: ${data.list[0].word}`)
+                .setTitle(`Definition of: ${data.list[0].word}`)
+                .setDescription(`${data.list[0].definition}`)
+                .setURL(data.list[0].permalink)
                 .addFields(
-                    { name: 'Defniition', value: '' + data.list[0].definition, inline: true },
                     { name: 'Example', value: '' + data.list[0].example },
+                    { name: '👍', value: '' + data.list[0].thumbs_up, inline: true },
+                    { name: '👎', value: '' + data.list[0].thumbs_down, inline: true },
                     { name: 'Author', value: '' + data.list[0].author, inline: true },
-                    { name: 'Thumbs up', value: '' + data.list[0].thumbs_up, inline: true },
-                    { name: 'Thumbs down', value: '' + data.list[0].thumbs_down, inline: true },
                     { name: 'Link', value: '' + data.list[0].permalink }
                 )
                 .setColor('#EFFF00')
