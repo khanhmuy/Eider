@@ -9,12 +9,12 @@ module.exports = {
     aliases: ['videoinfo', 'ytvidinfo', 'vidinfo'],
     async execute(client, message, args) {
         if (!args[0]) {
-            message.reply('Please provide a video id!');
+            message.reply('Please provide a video id or link!');
         } else {
             let embed = '';
             let id = ';'
             if (args[0].match(/https:\/\/www.youtube.com\/watch\?v=./)) {
-                id = args[0].slice(32);
+                id = args[0].slice(32, 43);
             } if (args[0].match(/https:\/\/youtu.be\/./)) {
                 id = args[0].slice('https://youtu.be/'.length);
             } if (!args[0].match(/https:\/\/www.youtube.com\/watch\?v=./) && !args[0].match(/https:\/\/youtu.be\/./)) {
@@ -23,6 +23,7 @@ module.exports = {
             const wait = await message.channel.send('Getting video info...');
             try {
                 const info = await ytdl.getInfo(id);
+                console.log(info);
                 const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
                 const dislikeCount = dislike.data.dislikes
                 const likeCount = info.videoDetails.likes;
@@ -31,7 +32,7 @@ module.exports = {
                 const channel = info.videoDetails.ownerChannelName;
                 const channelUrl = info.videoDetails.author.channel_url;
                 const subs = info.videoDetails.author.subscriber_count;
-                const uploadDate = dislike.data.dateCreated;
+                const uploadDate = info.videoDetails.publishDate;
                 const thumbnail = info.videoDetails.thumbnails[3].url;
                 const link = 'https://www.youtube.com/watch?v=' + id;
                 const rawDescription = info.videoDetails.description;
@@ -44,9 +45,9 @@ module.exports = {
                     .setTimestamp()
                     .addFields(
                         { name: 'Date created: ', value: "" + uploadDate },
-                        { name: 'Views:', value: "" + views, inline: true },
-                        { name: 'Likes:', value: "" + likeCount, inline: true },
-                        { name: 'Dislikes:', value: "" + dislikeCount, inline: true },
+                        { name: '👀', value: "" + views, inline: true },
+                        { name: '👍', value: "" + likeCount, inline: true },
+                        { name: '👎', value: "" + dislikeCount, inline: true },
                         { name: 'Description:', value: '' + description},
                         { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
                         { name: 'Subscribers: ', value: "" + subs , inline: true },
@@ -59,7 +60,7 @@ module.exports = {
             catch (error) {
                 console.log(error);
                 wait.delete();
-                message.reply('An error occurred! Please double check your video id!')
+                message.reply('An error occurred! Please double check your video id or link!')
             }
             
         }
