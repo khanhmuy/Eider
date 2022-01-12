@@ -14,8 +14,8 @@ async function error(err) {
 require('dotenv').config();
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-const commandFolders = fs.readdirSync('./commands');
+const eventFiles = fs.readdirSync('./Events').filter(file => file.endsWith('.js'));
+const commandFolders = fs.readdirSync('./Commands');
 client.commands = new Collection();
 client.cooldowns = new Collection();
 client.data = new Enmap({
