@@ -14,8 +14,8 @@ async function error(err) {
 require('dotenv').config();
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const eventFiles = fs.readdirSync('./Events').filter(file => file.endsWith('.js'));
-const commandFolders = fs.readdirSync('./Commands');
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+const commandFolders = fs.readdirSync('./commands');
 client.commands = new Collection();
 client.cooldowns = new Collection();
 client.data = new Enmap({
@@ -28,13 +28,13 @@ client.data = new Enmap({
 try {
 	console.log('--Events--');
 	for (const file of eventFiles) {
-		const event = require(`./Events/${file}`);
+		const event = require(`./events/${file}`);
 		if (event.once) {
 			client.once(event.name, (...args) => event.execute(client, ...args));
 		} else {
 			client.on(event.name, (...args) => event.execute(client, ...args));
 		}
-		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./Events/${file}`).name} event`));
+		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./events/${file}`).name} event`));
 	}
 	console.log('--Commands--');
 	for (const folder of commandFolders) {
@@ -42,11 +42,11 @@ try {
 			console.log(chalk.red(`File (${folder}) not in subdirectory, please move it. File has been ignored.`));
 			return;
 		}
-		const commandFiles = fs.readdirSync(`./Commands/${folder}`).filter(file => file.endsWith('.js'));
+		const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 		for (const file of commandFiles) {
-			const command = require(`./Commands/${folder}/${file}`);
+			const command = require(`./commands/${folder}/${file}`);
 			client.commands.set(command.name, command);
-			console.log(chalk.hex('#808080')('Loaded command ') + chalk.hex('#3c850c')(`${file} - ${require(`./Commands/${folder}/${file}`).name}`));
+			console.log(chalk.hex('#808080')('Loaded command ') + chalk.hex('#3c850c')(`${file} - ${require(`./commands/${folder}/${file}`).name}`));
 		}
 	}
 } catch (err) {
