@@ -12,16 +12,21 @@ module.exports = {
         axios.get('https://aws.random.cat/meow')
         .then(function(response) {
             embed = new MessageEmbed()
+                .setTitle('Cat image')
                 .setColor('BLUE')
                 .setTimestamp()
                 .setImage(response.data.file)
-                .addField('Requested by ', message.author.username)
-                .setFooter('Source: ' + response.data.file)
+                .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                .setURL(response.data.file)
         wait.delete();
         message.reply({ embeds: [embed] });
         })
         .catch(function(error) {
-            message.reply('Something went wrong, try again later.');
+            message.reply('Something went wrong, try again later.').then(x => {
+                setTimeout(() => {
+                    x.delete();
+                }, 4000)
+            });
         })
     },
 };

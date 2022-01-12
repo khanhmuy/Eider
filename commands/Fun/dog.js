@@ -12,16 +12,21 @@ module.exports = {
         axios.get('https://dog.ceo/api/breeds/image/random')
         .then(function(response) {
             embed = new MessageEmbed()
-            .setColor('BLUE')
-            .setTimestamp()
-            .setImage(response.data.message)
-            .addField('Requested by ', message.author.username)
-            .setFooter('Source: ' + response.data.message)
+                .setTitle('Dog image')
+                .setColor('BLUE')
+                .setTimestamp()
+                .setImage(response.data.message)
+                .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                .setURL(response.data.message)
         wait.delete();
         message.reply({ embeds: [embed] });
         })
         .catch(function(error) {
-            message.reply('Something went wrong, try again later.');
+            message.reply('Something went wrong, try again later.').then(x => {
+                setTimeout(() => {
+                    x.delete();
+                }, 4000)
+            });
         })
     },
 };
