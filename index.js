@@ -34,7 +34,7 @@ try {
 		} else {
 			client.on(event.name, (...args) => event.execute(client, ...args));
 		}
-		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./events/${file}`).name} event`));
+		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./Events/${file}`).name} event`));
 	}
 	console.log('--Commands--');
 	for (const folder of commandFolders) {
