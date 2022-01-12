@@ -23,7 +23,6 @@ module.exports = {
             const wait = await message.channel.send('Getting video info...');
             try {
                 const info = await ytdl.getInfo(id);
-                console.log(info.videoDetails);
                 const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
                 const dislikeCount = dislike.data.dislikes
                 const likeCount = info.videoDetails.likes;
