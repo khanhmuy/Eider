@@ -46,7 +46,7 @@ try {
 		for (const file of commandFiles) {
 			const command = require(`./Commands/${folder}/${file}`);
 			client.commands.set(command.name, command);
-			console.log(chalk.hex('#808080')('Loaded command ') + chalk.hex('#3c850c')(`${file} - ${require(`./commands/${folder}/${file}`).name}`));
+			console.log(chalk.hex('#808080')('Loaded command ') + chalk.hex('#3c850c')(`${file} - ${require(`./Commands/${folder}/${file}`).name}`));
 		}
 	}
 } catch (err) {
