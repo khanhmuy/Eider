@@ -28,7 +28,7 @@ client.data = new Enmap({
 try {
 	console.log('--Events--');
 	for (const file of eventFiles) {
-		const event = require(`./events/${file}`);
+		const event = require(`./Events/${file}`);
 		if (event.once) {
 			client.once(event.name, (...args) => event.execute(client, ...args));
 		} else {
@@ -42,9 +42,9 @@ try {
 			console.log(chalk.red(`File (${folder}) not in subdirectory, please move it. File has been ignored.`));
 			return;
 		}
-		const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+		const commandFiles = fs.readdirSync(`./Commands/${folder}`).filter(file => file.endsWith('.js'));
 		for (const file of commandFiles) {
-			const command = require(`./commands/${folder}/${file}`);
+			const command = require(`./Commands/${folder}/${file}`);
 			client.commands.set(command.name, command);
 			console.log(chalk.hex('#808080')('Loaded command ') + chalk.hex('#3c850c')(`${file} - ${require(`./commands/${folder}/${file}`).name}`));
 		}
