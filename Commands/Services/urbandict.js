@@ -38,6 +38,7 @@ module.exports = {
                     { name: 'Link', value: '' + data.list[0].permalink }
                 )
                 .setColor('#EFFF00')
+                .setThumbnail('https://i.imgur.com/VFXr0ID.jpg')
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp();
             wait.delete();
