@@ -16,6 +16,7 @@
     "enmap": "^5.8.7",
     "ffmpeg-static": "^4.4.0",
     "moment": "^2.29.1",
+    "nodemon": "^2.0.15",
     "systeminformation": "^5.8.0",
     "ytdl-core": "^4.10.0"
   },
