@@ -41,7 +41,6 @@ module.exports = {
 												const embed = new Discord.MessageEmbed()
 													.setColor('GREEN')
 													.setTitle(`System & Process Information for ${client.user.username}`)
-													.setURL('https://discord.gg/fNPn8wa6J7')
 													.setTimestamp()
 													.setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
 													.addField('Process Information', `**Uptime** \n${uptime} \n**Serving** \n${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} members \n**Running** \n${process.release.name} ${process.version}`)
