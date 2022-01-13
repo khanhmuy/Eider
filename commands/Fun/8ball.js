@@ -28,11 +28,12 @@ module.exports = {
             'Outlook not so good.',
             'Very doubtful.'
         ]
+        const question = args.join(' ');
         const answer = Math.floor(Math.random() * answers.length)
         const embed = new MessageEmbed()
             .setColor('RANDOM')
             .setTitle('**Magic 8-Ball**')
-            .setDescription(`**Our Magic 8-Ball Says**: ${answers[answer]}`)
+            .setDescription(`**Your question**: ` + question + `\n**Our Magic 8-Ball Says**: ${answers[answer]}`)
         message.reply({ embeds: [embed] });
     },
 };
