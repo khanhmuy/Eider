@@ -24,15 +24,15 @@ module.exports = {
                 });
             } else {
                 try {
+                    console.log(info.data.data[0].packageIcon);
                     let color = null
-                    if (!info.data.data[0].packageIcon.startsWith('http:') || !info.data.data[0].packageIcon.startsWith('https:')) {
-                      color = '#fccc04'
-                      info.data.data[0].packageIcon = undefined
-                    } else {
-                      color = await Vibrant.from(info.data.data[0].packageIcon || 'https://repo.packix.com/api/Packages/60bfb71987ca62001c6585e6/icon/download?size=medium&hash=2').getPalette()
-                      color = color.Vibrant.hex
-                    }
-                    console.log(info.data.data[0].repository.name)
+                    if (info.data.data[0].packageIcon.startsWith('http:') || info.data.data[0].packageIcon.startsWith('https:')) {
+                        color = await Vibrant.from(info.data.data[0].packageIcon || 'https://repo.packix.com/api/Packages/60bfb71987ca62001c6585e6/icon/download?size=medium&hash=2').getPalette()
+                        color = color.Vibrant.hex
+                      } else {
+                        color = '#fccc04'
+                        res.data[0].packageIcon = undefined
+                      }
                     const embed = new MessageEmbed()
                         .setTitle(info.data.data[0].name || 'what')
                         .setDescription(info.data.data[0].description || 'No description provided.')
@@ -50,7 +50,8 @@ module.exports = {
                         .setTimestamp()
                     wait.delete();
                     message.reply({ embeds: [embed] });
-                } catch {
+                } catch(error) {
+                    console.log(error)
                     wait.delete();
                     message.reply('An error occurred!').then(x => {
                         setTimeout(() => {
