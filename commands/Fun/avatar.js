@@ -22,8 +22,8 @@ module.exports = {
 				.setTitle(`Avatar of ${message.author.username}`)
 				.addField('Download as', '[jpeg](' + jpeg + ') | [png](' + png + ') | [webp](' + webp + ')')
 				.setColor(color.Vibrant.hex)
-				.setImage(jpeg)
-				.setURL(jpeg);
+				.setImage(png)
+				.setURL(png);
 			} else {
 				if (!args[0].match(/<@!*&*[0-9]+>/)) return message.reply('Thats not a user!').then(x => {
 					setTimeout(() => {
@@ -40,8 +40,8 @@ module.exports = {
 					.setTitle(`Avatar of ${message.mentions.users.first().username}`)
 					.addField('Download as', '[jpeg](' + jpeg + ') | [png](' + png + ') | [webp](' + webp + ')')
 					.setColor(color.Vibrant.hex)
-					.setImage(jpeg)
-					.setURL(jpeg);
+					.setImage(png)
+					.setURL(png);
 			}
 			message.reply({ embeds: [embed] });
 		} catch(error) {
