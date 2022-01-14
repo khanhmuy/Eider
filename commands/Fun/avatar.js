@@ -8,6 +8,7 @@ module.exports = {
 	aliases:[ 'av', 'pfp', 'avt', 'getavatar', 'getpfp', 'getavt' ],
 	async execute(client, message, args) {
 		try {
+			const wait = await message.channel.send('Give me a second please...');
 			let jpeg = '';
 			let png = '';
 			let webp = '';
@@ -43,10 +44,12 @@ module.exports = {
 					.setImage(png)
 					.setURL(png);
 			}
+			wait.delete();
 			message.reply({ embeds: [embed] });
 		} catch(error) {
 			return message.reply('An error occurred!').then(x => {
 				setTimeout(() => {
+					wait.delete();
 					console.log(error)
 					message.delete();
 					x.delete();
