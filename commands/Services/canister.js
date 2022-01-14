@@ -1,4 +1,5 @@
 const axios = require('axios');
+const Vibrant = require('node-vibrant');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'canister',
@@ -12,7 +13,7 @@ module.exports = {
         else {
             const input = '' + args;
             const query = input.split(' ').join('%20');
-            const info = await axios.get('https://api.canister.me/v1/community/packages/search?query=' + query);
+            const info = await axios.get('https://api.canister.me/v1/community/packages/search?query=' + query + '&searchFields=identifier,name,author,maintainer&responseFields=identifier,name,description,packageIcon,repository.uri,repository.name,author,latestVersion,depiction,section,price,maintainer');
             if (!info.data.data[0]) {
                 wait.delete();
                 message.reply('No results found!').then(x => {
@@ -23,18 +24,30 @@ module.exports = {
                 });
             } else {
                 try {
+                    let color = null
+                    if (!info.data.data[0].packageIcon.startsWith('http:') || !info.data.data[0].packageIcon.startsWith('https:')) {
+                      color = '#fccc04'
+                      info.data.data[0].packageIcon = undefined
+                    } else {
+                      color = await Vibrant.from(info.data.data[0].packageIcon || 'https://repo.packix.com/api/Packages/60bfb71987ca62001c6585e6/icon/download?size=medium&hash=2').getPalette()
+                      color = color.Vibrant.hex
+                    }
+                    console.log(info.data.data[0].repository.name)
                     const embed = new MessageEmbed()
-                        .setTitle(info.data.data[0].name)
-                        .setDescription(info.data.data[0].description)
-                        .setTimestamp()
+                        .setTitle(info.data.data[0].name || 'what')
+                        .setDescription(info.data.data[0].description || 'No description provided.')
+                        .setThumbnail(info.data.data[0].packageIcon || 'https://repo.packix.com/api/Packages/60bfb71987ca62001c6585e6/icon/download?size=medium&hash=2')
+                        .setColor(color)
                         .addFields(
-                            { name: 'Author', value: '' + info.data.data[0].author, inline: true },
-                            { name: 'Maintainer', value: '' + info.data.data[0].maintainer, inline: true },
+                            { name: 'Author', value: '' + info.data.data[0].author || 'Unknown', inline: true },
+                            { name: 'Version', value: '' + info.data.data[0].latestVersion || 'Unknown', inline: true },
+                            { name: 'Price', value: '' + info.data.data[0].price || 'Unknown', inline: true },
                             { name: 'Bundle ID', value: '' + info.data.data[0].identifier, inline: true },
-                            { name: 'Repository', value: '' + info.data.data[0].repository.uri },
+                            { name: 'Repository', value: '[' + info.data.data[0].repository.name + ']' + '(' + info.data.data[0].repository.uri + ')', inline: true },
+                            { name: 'Add repository', value: '[Add to Cydia](' + 'https://sharerepo.stkc.win/v2/?pkgman=cydia&repo=' + info.data.data[0].repository.uri + ') | [Add to Sileo](' + 'https://sharerepo.stkc.win/v2/?pkgman=sileo&repo=' + info.data.data[0].repository.uri + ') | [Add to Zebra](' + 'https://sharerepo.stkc.win/v2/?pkgman=zebra&repo=' + info.data.data[0].repository.uri + ') | [Add to Installer](' + 'https://sharerepo.stkc.win/v2/?pkgman=installer&repo=' + info.data.data[0].repository.uri + ')' },
                         )
-                        .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                        .setColor('#17A8FF');
+                        .setFooter('Powered by Canister')
+                        .setTimestamp()
                     wait.delete();
                     message.reply({ embeds: [embed] });
                 } catch {
