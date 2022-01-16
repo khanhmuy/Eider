@@ -23,6 +23,13 @@ module.exports = {
             const wait = await message.channel.send('Getting video info...');
             try {
                 const info = await ytdl.getInfo(id);
+                const minutes = Math.floor(info.videoDetails.lengthSeconds / 60);
+                let seconds = '';
+                let rawSeconds = info.videoDetails.lengthSeconds - minutes * 60;
+                if (rawSeconds < 10) {
+                    seconds = '0' + rawSeconds;
+                } else {seconds = rawSeconds};
+                const duration = `${minutes}:${seconds}`;
                 const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
                 const dislikeCount = dislike.data.dislikes
                 const likeCount = info.videoDetails.likes;
@@ -43,7 +50,9 @@ module.exports = {
                     .setThumbnail(thumbnail)
                     .setTimestamp()
                     .addFields(
-                        { name: 'Date created: ', value: "" + uploadDate },
+                        { name: 'Date created: ', value: "" + uploadDate, inline: true },
+                        { name: 'Duration:', value: '' + duration, inline: true },
+                        { name: 'Category:', value: '' + info.videoDetails.category, inline: true },
                         { name: '👀', value: "" + views, inline: true },
                         { name: '👍', value: "" + likeCount, inline: true },
                         { name: '👎', value: "" + dislikeCount, inline: true },
