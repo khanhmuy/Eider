@@ -23,8 +23,7 @@ module.exports = {
                     }, 4000);
                 });
             } else {
-                //try {
-                    console.log(info.data.data[0].packageIcon);
+                try {
                     let color = null
                     try {
                         const icon = info.data.data[0].packageIcon;
@@ -56,16 +55,16 @@ module.exports = {
                         .setTimestamp()
                     wait.delete();
                     message.reply({ embeds: [embed] });
-                //} catch(error) {
-                //    console.log(error)
-                //    wait.delete();
-                //    message.reply('An error occurred!').then(x => {
-                //        setTimeout(() => {
-                //            message.delete();
-                //            x.delete();
-                //        },4000);
-                //    }); 
-                //}
+                } catch(error) {
+                    console.log(error)
+                    wait.delete();
+                    message.reply('An error occurred!').then(x => {
+                        setTimeout(() => {
+                            message.delete();
+                            x.delete();
+                        },4000);
+                    }); 
+                }
             }
         }
     },
