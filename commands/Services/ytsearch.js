@@ -13,16 +13,19 @@ module.exports = {
             }, 4000)
         });
         const query = args.join(' ');
+        const link = 'https://www.youtube.com/results?search_query=' + args.join('%20')
         const wait = await message.channel.send('Searching...');
-        const result = await ytsr(query, { limit: [10] });
+        const result = await ytsr(query, { limit: [8] });
         const embed = new MessageEmbed()
             .setTitle('Results for ' + query)
+            .setDescription('[Total results](' + link + '): ' + result.results)
+            .setURL(link)
             .setColor('#FF0000')
             .setTimestamp()
             .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         result.items.forEach(result => {
             if (result.type !== 'video') return
-            embed.addField(result.title, `Channel: [${result.author.name}](${result.author.url})\n Views: ${result.views} \nDuration: ${result.duration}\nUploaded ${result.uploadedAt}\n\n[View in YouTube](${result.url})`)
+            embed.addField(result.title, `Channel: [${result.author.name}](${result.author.url})\n 👀: ${result.views} \nDuration: ${result.duration}\nUploaded ${result.uploadedAt}\n\n[View in YouTube](${result.url})`)
           })
         wait.delete();
         message.reply({ embeds: [embed] });
