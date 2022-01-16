@@ -25,7 +25,7 @@ module.exports = {
             }
             const res = await axios.get(`https://nekobot.xyz/api/imagegen?type=tweet&username=${user}&text=${text}`); 
             wait.delete();
-            message.reply(res.data.message);
+            message.channel.send(res.data.message);
         } catch(error) {
             console.log(error);
             wait.delete();
