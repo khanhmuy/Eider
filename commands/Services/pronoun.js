@@ -5,7 +5,7 @@ module.exports = {
     description: 'Gets a user\'s pronoun through PronounDB',
     usage: 'pronoun [user]',
     cooldown: 5,
-    aliases: [ 'pronoundb', 'pronounDB', 'Pronoundb', 'PronounDB' ],
+    aliases: [ 'pronoundb', 'pronounDB', 'Pronoundb', 'PronounDB', 'pronouns' ],
     async execute(client, message, args) {
         let id = '';
         let pronoun = '';
