@@ -79,11 +79,12 @@ module.exports = {
                 .setTitle(`PronounDB`)
                 .setDescription('Pronouns of ' + replyMention + ' is: ' + pronoun)
                 .setTimestamp()
-            const reply = await message.channel.send({ embeds: [embed] });
-            setTimeout(() => {
-                message.delete();
-                reply.delete();
-            }, 20000);
+            message.reply({ embeds: [embed] }).then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 20000);
+            });
         })
         .catch(function(error) {
             message.reply('Something went wrong, try again later.').then(x => {
