@@ -23,7 +23,7 @@ module.exports = {
                 .setDescription(response.data.explanation)
                 .addField('Image link:', '' + response.data.hdurl)
             wait.delete();
-            message.reply({ embeds: [embed] });
+            message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
         })
         .catch(function (error) {
             message.reply('There was an error loading the image. Please try again later.').then (x => {

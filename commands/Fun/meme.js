@@ -18,7 +18,7 @@ module.exports = {
 					.setURL(response.data.memes[0].postLink)
 					.setFooter(`Author: ${response.data.memes[0].author}`);
 				wait.delete();
-				message.channel.send({ embeds: [embed] });
+				message.channel.send({ embeds: [embed], allowedMentions: { repliedUser: false } });
 			});
 	},
 };

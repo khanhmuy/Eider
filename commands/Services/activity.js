@@ -20,7 +20,7 @@ module.exports = {
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
         wait.delete();
-        message.reply({ embeds: [embed] });
+        message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
         })
         .catch(function(error) {
             message.reply('Something went wrong, try again later.').then(x => {

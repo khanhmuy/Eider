@@ -69,7 +69,7 @@ module.exports = {
                     )
                     .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     wait.delete();
-                    message.reply({ embeds: [embed] });
+                    message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
             }
             catch (error) {
                 console.log(error);

@@ -54,7 +54,7 @@ module.exports = {
                         .setFooter('Powered by Canister')
                         .setTimestamp()
                     wait.delete();
-                    message.reply({ embeds: [embed] });
+                    message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
                 } catch(error) {
                     console.log(error)
                     wait.delete();

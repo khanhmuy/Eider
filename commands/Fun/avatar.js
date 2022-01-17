@@ -45,7 +45,7 @@ module.exports = {
 					.setURL(png);
 			}
 			wait.delete();
-			message.reply({ embeds: [embed] });
+			message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 		} catch(error) {
 			return message.reply('An error occurred!').then(x => {
 				setTimeout(() => {
