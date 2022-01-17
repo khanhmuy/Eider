@@ -24,7 +24,6 @@ module.exports = {
 				.setTitle('Eider\'s Github repositories')
 				.setColor('#C0DDFF')
 				.setDescription('[Click here to view Eider_hmuy\'s Github repositiory!](https://github.com/khanhmuy/eider_hmuy)\n[Click here to view Eider\'s Github repositiory!](https://github.com/CallMeEchoCodes/Eider)')
-
 			message.channel.send({ embeds: [ about, invite, github ] });
 		}
 	},

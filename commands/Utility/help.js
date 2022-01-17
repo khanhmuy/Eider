@@ -32,8 +32,9 @@ module.exports = {
 
 				embed.addField(folder, array.join('\n'), true);
 			}
+			message.react('📬')
+			message.author.send({ embeds: [ embed ] });
 
-			message.channel.send({ embeds: [ embed ] });
 		} else {
 			const search = args.join(' ');
 			const results = new Array();
@@ -73,8 +74,7 @@ module.exports = {
 				.addField('Aliases', aliases, true)
 				.addField('Usage', usage, true)
 				.setColor('#C0DDFF');
-
-			message.channel.send({ embeds: [embed] });
+			message.reply({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
 		}
 	},
 };
