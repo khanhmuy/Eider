@@ -34,6 +34,6 @@ module.exports = {
             .setColor('RANDOM')
             .setTitle('**Magic 8-Ball**')
             .setDescription(`**Your question**: ` + question + `\n**Our Magic 8-Ball Says**: ${answers[answer]}`)
-        message.reply({ embeds: [embed] });
+        message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
     },
 };
