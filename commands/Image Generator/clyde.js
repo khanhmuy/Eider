@@ -12,7 +12,7 @@ module.exports = {
             const res = await axios.get('https://nekobot.xyz/api/imagegen?type=clyde&text=' + args.join('%20'));
             message.channel.send(res.data.message);
         } catch {
-            message.reply('Something went wrong! Please try again later, or try using English maybe').then(x => {
+            return message.reply('Something went wrong! Please try again later, or try using English maybe').then(x => {
                 setTimeout(() => {
                     x.delete();
                 }, 4000);
