@@ -33,7 +33,7 @@ module.exports = {
 				embed.addField(folder, array.join('\n'), true);
 			}
 			message.react('📬')
-			message.author.send({ embeds: [ embed ] });
+			message.channel.send({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
 
 		} else {
 			const search = args.join(' ');
