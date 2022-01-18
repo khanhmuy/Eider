@@ -32,7 +32,6 @@ module.exports = {
 
 				embed.addField(folder, array.join('\n'), true);
 			}
-			message.react('📬')
 			message.channel.send({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
 
 		} else {
