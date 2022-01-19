@@ -22,6 +22,6 @@ module.exports = {
 			.setColor('BLUE')
 			.setTimestamp()
 			.setDescription(replyChannel);
-		message.reply({ embeds: [embed] });
+		message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 	},
 };

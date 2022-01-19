@@ -9,6 +9,6 @@ module.exports = {
         const g = parseInt(args[1]);
         const b = parseInt(args[2]);
         const hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-        message.reply('It is ' + hex + '.');
+        message.reply({content: 'It is ' + hex + '.', allowedMentions: { repliedUser: false }});
     },
 };

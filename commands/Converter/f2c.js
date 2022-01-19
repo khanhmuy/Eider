@@ -8,6 +8,6 @@ module.exports = {
     async execute(client, message, args) {
         const fahrenheit = parseFloat(args[0]);
         const celsius = (fahrenheit - 32) * 5/9;
-        message.reply('That is ' + celsius + ' degrees Celsius!');
+        message.reply({content: 'That is ' + celsius + ' degrees Celsius!', allowedMentions: { repliedUser: false }});
     }
 }
