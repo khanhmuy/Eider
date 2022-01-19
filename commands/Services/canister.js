@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Vibrant = require('node-vibrant');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'canister',
     description: 'Get the info of a jailbreak package via Canister',
@@ -49,12 +49,39 @@ module.exports = {
                             { name: 'Price', value: '' + info.data.data[0].price || 'Unknown', inline: true },
                             { name: 'Bundle ID', value: '' + info.data.data[0].identifier, inline: true },
                             { name: 'Repository', value: '[' + info.data.data[0].repository.name + ']' + '(' + info.data.data[0].repository.uri + ')', inline: true },
-                            { name: 'Add repository', value: '[Add to Cydia](' + 'https://sharerepo.stkc.win/v2/?pkgman=cydia&repo=' + info.data.data[0].repository.uri + ') | [Add to Sileo](' + 'https://sharerepo.stkc.win/v2/?pkgman=sileo&repo=' + info.data.data[0].repository.uri + ') | [Add to Zebra](' + 'https://sharerepo.stkc.win/v2/?pkgman=zebra&repo=' + info.data.data[0].repository.uri + ') | [Add to Installer](' + 'https://sharerepo.stkc.win/v2/?pkgman=installer&repo=' + info.data.data[0].repository.uri + ')' },
                         )
                         .setFooter('Powered by Canister')
                         .setTimestamp()
+                    const row = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setStyle('LINK')
+                                .setURL(info.data.data[0].depiction || 'https://404.github.io/')
+                                .setEmoji('🔍')
+                                .setLabel('View Depiction'),
+                            new MessageButton()
+                                .setEmoji('931391570320715887')
+                                .setStyle('LINK')
+                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=cydia&repo=${info.data.data[0].repository.uri}`)
+                                .setLabel('Add Repo To Cydia'),
+                            new MessageButton()
+                                .setStyle('LINK')
+                                .setURL('https://sharerepo.stkc.win/v2/?pkgman=sileo&repo=' + info.data.data[0].repository.uri)
+                                .setEmoji('931390952411660358')
+                                .setLabel('Add Repo To Sileo'),
+                            new MessageButton()
+                                .setEmoji('931391570639478834')
+                                .setStyle('LINK')
+                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=zebra&repo=${info.data.data[0].repository.uri}`)
+                                .setLabel('Add Repo To Zebra'),
+                            new MessageButton()
+                                .setEmoji('931391570404573235')
+                                .setStyle('LINK')
+                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=installer&repo=${info.data.data[0].repository.uri}`)
+                                .setLabel('Add Repo To Installer')
+                        );
                     wait.delete();
-                    message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+                    message.reply({ embeds: [embed], components:[row] , allowedMentions: { repliedUser: false } });
                 } catch(error) {
                     console.log(error)
                     wait.delete();
