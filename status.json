@@ -5,6 +5,11 @@
         "status": "online"
     },
     {
+        "name": "with your mother",
+        "type": "PLAYING",
+        "status": "dnd"
+    },
+    {
         "name": "harassing hmuy",
         "type": "PLAYING",
         "status": "online"
@@ -13,6 +18,16 @@
         "name": "to podcasts",
         "type": "LISTENING",
         "status": "idle"
+    },
+    {
+        "name": "to 20syl",
+        "type": "LISTENING",
+        "status": "online"
+    },
+    {
+        "name": "to shawn wasabi",
+        "type": "LISTENING",
+        "status": "online"
     },
     {
         "name": "in F1",
@@ -37,11 +52,21 @@
     {
         "name": "i hate school",
         "type": "PLAYING",
-        "status": "online"
+        "status": "idle"
     },
     {
         "name": "doing homework dammit",
         "type": "PLAYING",
         "status": "dnd"
+    },
+    {
+        "name": "`,help` or sum idk",
+        "type": "PLAYING",
+        "status": "online"
+    },
+    {
+        "name": "made it till 14",
+        "type": "PLAYING",
+        "status": "idle"
     }
 ]
