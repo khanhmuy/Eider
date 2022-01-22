@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'urbandict',
     description: 'Search the Urban Dictionary',
@@ -35,15 +35,23 @@ module.exports = {
                     { name: '👍', value: '' + data.list[0].thumbs_up, inline: true },
                     { name: '👎', value: '' + data.list[0].thumbs_down, inline: true },
                     { name: 'Author', value: '' + data.list[0].author, inline: true },
-                    { name: 'Link', value: '' + data.list[0].permalink }
                 )
                 .setColor('#EFFF00')
                 .setThumbnail('https://i.imgur.com/VFXr0ID.jpg')
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp();
+            const row = new MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                        .setStyle('LINK')
+                        .setURL(data.list[0].permalink)
+                        .setLabel('View Definition on Urban Dictionary')
+                )
             wait.delete();
-            message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
-        } catch {
+            message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+        } catch(error) {
+            wait.delete();
+            console.log(error)
             message.reply('An error occured! Please try again later!').then(x => {
                 setTimeout(() => {
                     message.delete();

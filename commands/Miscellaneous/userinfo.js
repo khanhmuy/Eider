@@ -1,5 +1,4 @@
 const discord = require('discord.js');
-const Vibrant = require('node-vibrant');
 const moment = require('moment');
 module.exports = {
     name:'userinfo',

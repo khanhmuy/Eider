@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'cat',
     description: 'Sends a random cat image!',
@@ -16,10 +16,16 @@ module.exports = {
                 .setColor('BLUE')
                 .setTimestamp()
                 .setImage(response.data.file)
-                .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setURL(response.data.file)
+            const row = new MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                        .setStyle('LINK')
+                        .setURL(response.data.file)
+                        .setLabel('View Orginal Image')
+                )
         wait.delete();
-        message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+        message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
         })
         .catch(function(error) {
             message.reply('Something went wrong, try again later.').then(x => {

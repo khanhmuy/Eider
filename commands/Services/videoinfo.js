@@ -37,7 +37,7 @@ module.exports = {
                 const title = info.videoDetails.title;
                 const channel = info.videoDetails.ownerChannelName;
                 const channelUrl = info.videoDetails.author.channel_url;
-                const subs = info.videoDetails.author.subscriber_count;
+                var subs = info.videoDetails.author.subscriber_count;
                 const uploadDate = info.videoDetails.publishDate;
                 const thumbnail = info.videoDetails.thumbnails[3].url;
                 const link = 'https://www.youtube.com/watch?v=' + id;
@@ -68,8 +68,15 @@ module.exports = {
                         { name: 'Video link: ', value: '' + link },
                     )
                     .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                    const row = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setStyle('LINK')
+                                .setLabel('View Video on YouTube')
+                                .setURL(link)
+                        )
                     wait.delete();
-                    message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+                    message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
             }
             catch (error) {
                 console.log(error);
