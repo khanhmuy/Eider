@@ -29,7 +29,12 @@ module.exports = {
 					const message = args.slice(1).join(' ');
 					sendChannel.send(message);
 				};
-				message.react('✅');
+				message.react('✅').then(x => {
+					setTimeout(() => {
+						message.delete();
+						x.delete();
+					}, 4000)
+				});
 			}
 		} catch (error) {
 			console.log(error);
