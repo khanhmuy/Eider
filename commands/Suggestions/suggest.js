@@ -22,8 +22,8 @@ module.exports = {
 			.setAuthor(message.author.tag, message.author.avatarURL());
 		const channel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.suggestChannel`));
 		channel.send({ embeds: [embed] }).then(embedMessage => {
-			embedMessage.react('⬆️');
-			embedMessage.react('⬇️');
+			embedMessage.react(':upvote:934609241493360641');
+			embedMessage.react(':downvote:934609321008984127');
 		});
 		message.delete();
 		const sent = await message.channel.send(`Suggestion #${suggestionnum} submitted!`);
