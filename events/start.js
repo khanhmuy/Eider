@@ -13,7 +13,7 @@ module.exports = {
 			client.user.setStatus({
 				status: now.status,
 			})
-			client.user.setActivity(now.name)
+			client.user.setActivity(now.name, {type: now.type})
 		}, 15000)
 	},
 };
