@@ -15,15 +15,11 @@ module.exports = {
 				.setDescription('Make me say stupid ig (to another channel)');
 				message.reply({ embeds: [embed] });
 			} else if(!args[0].match(/<#[0-9]+>/)) {
-				message.channel.send(args.join(' ')).then(
-					setTimeout(() => {
-						message.delete();
-					}, 4000)
-				);
+				message.channel.send(args.join(' '));
 				message.react('✅');
 				setTimeout(() => {
 					message.delete();
-				}, 5000);
+				}, 4000);
 			} else {
 				if(!args[0].match(/<#[0-9]+>/) && args[1]) {
 					message.channel.send('You didnt specify a channel!');
@@ -31,13 +27,12 @@ module.exports = {
 					const channel = args[0].slice(2, -1);
 					const sendChannel = client.channels.cache.get(channel);
 					const message = args.slice(1).join(' ');
-					sendChannel.send(message).then(
-						setTimeout(() => {
-							message.delete();
-						}, 4000)
-					);
+					sendChannel.send(message);
 				};
 				message.react('✅');
+				setTimeout(() => {
+					message.delete();
+				}, 4000)
 			}
 		} catch (error) {
 			console.log(error);
