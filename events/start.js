@@ -14,6 +14,6 @@ module.exports = {
 				status: now.status,
 			})
 			client.user.setActivity(now.name, {type: now.type})
-		}, 15000)
+		}, 12000)
 	},
 };

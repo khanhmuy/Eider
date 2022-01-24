@@ -15,18 +15,33 @@
         "status": "online"
     },
     {
-        "name": "to podcasts",
+        "name": "podcasts",
         "type": "LISTENING",
         "status": "idle"
     },
     {
-        "name": "to 20syl",
+        "name": "20syl",
         "type": "LISTENING",
         "status": "online"
     },
     {
-        "name": "to shawn wasabi",
+        "name": "shawn wasabi",
         "type": "LISTENING",
+        "status": "online"
+    },
+    {
+        "name": "lossless music files",
+        "type": "LISTENING",
+        "status": "dnd"
+    },
+    {
+        "name": "raw pcm samples",
+        "type": "LISTENING",
+        "status": "idle"
+    },
+    {
+        "name": "Mincecraft",
+        "type": "PLAYING",
         "status": "online"
     },
     {
@@ -66,6 +81,16 @@
     },
     {
         "name": "made it till 14",
+        "type": "PLAYING",
+        "status": "idle"
+    },
+    {
+        "name": "i hate myself",
+        "type": "PLAYING",
+        "status": "dnd"
+    },
+    {
+        "name": "why was i born",
         "type": "PLAYING",
         "status": "idle"
     }
