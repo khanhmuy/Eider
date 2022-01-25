@@ -8,10 +8,13 @@ module.exports = {
     async execute(client, message, args) {
         try {
             if (!args[0]) {return message.reply('You need to provide some text.');}
-            console.log(args.join('%20'));
+            const wait = await message.channel.send('please wait...');
             const res = await axios.get('https://nekobot.xyz/api/imagegen?type=clyde&text=' + args.join('%20'));
+            message.delete();
             message.channel.send(res.data.message);
-        } catch {
+        } catch(error) {
+            wait.delete();
+            console.log(error);
             return message.reply('Something went wrong! Please try again later, or try using English maybe').then(x => {
                 setTimeout(() => {
                     x.delete();

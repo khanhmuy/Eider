@@ -17,6 +17,8 @@ module.exports = {
             wait.delete();
             message.reply(image.data.message);
         } catch(error) {
+            wait.delete();
+            console.log(error);
             return message.reply('Something went wrong! Please try again later!').then(x => {
                 setTimeout(() => {
                     x.delete();
