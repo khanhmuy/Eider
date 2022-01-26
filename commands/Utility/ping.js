@@ -8,10 +8,21 @@ module.exports = {
 	async execute(client, message) {
 		message.channel.send('Pinging...').then((msg) => {
 			const ping = msg.createdTimestamp - message.createdTimestamp;
+			var color = 'RANDOM';
+			if (ping < 150) {
+				color = 'GREEN';
+			} else if (ping > 150 && ping < 250) {
+				color = 'YELLOW';
+			} else if (ping > 250) {
+				color = 'RED';
+			}
 			const embed = new MessageEmbed()
-				.setColor('RANDOM')
+				.setColor(color)
 				.setTitle('Pong!')
-				.setDescription(`The bots ping is ${ping}ms.`);
+				.addFields(
+					{ name: 'Websocket Heartbeat', value: `${client.ws.ping}ms`, inline: true },
+					{ name: 'Roundtrip Latency', value: `${ping}ms`, inline: true }
+				)
 			message.channel.send({ embeds: [embed] });
 			msg.delete();
 		});
