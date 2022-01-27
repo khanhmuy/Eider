@@ -14,7 +14,6 @@ module.exports = {
 		if (!client.data.get(`guild.${message.guild.id}.suggestChannel`)) {
 			message.reply('Suggestions are disabled in this guild!');
 		}
-
 		const embed = new MessageEmbed()
 			.setTitle(`Suggestion #${suggestionnum}`)
 			.setDescription(args)
