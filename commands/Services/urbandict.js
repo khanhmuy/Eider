@@ -31,10 +31,10 @@ module.exports = {
                 .setDescription(`${data.list[0].definition}`)
                 .setURL(data.list[0].permalink)
                 .addFields(
-                    { name: 'Example', value: '' + data.list[0].example },
-                    { name: '👍', value: '' + data.list[0].thumbs_up, inline: true },
-                    { name: '👎', value: '' + data.list[0].thumbs_down, inline: true },
-                    { name: 'Author', value: '' + data.list[0].author, inline: true },
+                    { name: 'Example', value: data.list[0].example.toString() },
+                    { name: '👍', value: data.list[0].thumbs_up.toString(), inline: true },
+                    { name: '👎', value: data.list[0].thumbs_down.toString(), inline: true },
+                    { name: 'Author', value: data.list[0].author.toString(), inline: true },
                 )
                 .setColor('#EFFF00')
                 .setThumbnail('https://i.imgur.com/VFXr0ID.jpg')

@@ -65,7 +65,6 @@ module.exports = {
                         { name: 'Description:', value: '' + description},
                         { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
                         { name: 'Subscribers: ', value: "" + subs , inline: true },
-                        { name: 'Video link: ', value: '' + link },
                     )
                     .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     const row = new MessageActionRow()

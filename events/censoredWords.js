@@ -4,8 +4,8 @@ module.exports = {
     name: 'messageCreate',
     async execute(client, message) {
         try {
-            const words = await axios.get('https://raw.githubusercontent.com/LillieWeeb001/Anti-Scam-Json-List/main/antiscam.json')
-            words.data.scamjburls.forEach(word => {
+            const fakejb = await axios.get('https://raw.githubusercontent.com/LillieWeeb001/Anti-Scam-Json-List/main/antiscam.json')
+            fakejb.data.scamjburls.forEach(word => {
                 if (message.content.includes(word)) {
                     message.delete();
                     const mention = '<@!' + message.author.id + '>';
