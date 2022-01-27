@@ -4,8 +4,8 @@ module.exports = {
     name: 'messageCreate',
     async execute(client, message) {
         try {
-            const fakejb = await axios.get('https://raw.githubusercontent.com/LillieWeeb001/Anti-Scam-Json-List/main/antiscam.json')
-            fakejb.data.scamjburls.forEach(word => {
+            const words = await axios.get('https://raw.githubusercontent.com/LillieWeeb001/Anti-Scam-Json-List/main/antiscam.json')
+            words.data.scamjburls.forEach(word => {
                 if (message.content.includes(word)) {
                     message.delete();
                     const mention = '<@!' + message.author.id + '>';
@@ -15,6 +15,28 @@ module.exports = {
                         .setColor('#ff0000')
                     message.channel.send( {content: mention, embeds: [embed]} )
                     
+                }
+            });
+            words.data.scamdiscordurls.forEach(word => {
+                if (message.content.includes(word)) {
+                    message.delete();
+                    const mention = '<@!' + message.author.id + '>';
+                    const embed = new MessageEmbed()
+                        .setTitle('Fake or scam discord detected!')
+                        .setDescription('Your message contained the link to a Discord scam link (' + word + '). Your message has been removed.')
+                        .setColor('#ff0000')
+                    message.channel.send( {content: mention, embeds: [embed]} )
+                }
+            });
+            words.data.scamideviceunlockurls.forEach(word => {
+                if (message.content.includes(word)) {
+                    message.delete();
+                    const mention = '<@!' + message.author.id + '>';
+                    const embed = new MessageEmbed()
+                        .setTitle('Fake or scam iDevice unlock detected!')
+                        .setDescription('Your message contained the link to a fake / scam iDevice unlock (' + word + '). Your message will be removed')
+                        .setColor('#ff0000')
+                    message.channel.send( {content: mention, embeds: [embed]} )
                 }
             });
         } catch(error) {
