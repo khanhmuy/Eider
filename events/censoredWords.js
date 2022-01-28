@@ -17,17 +17,17 @@ module.exports = {
                     
                 }
             });
-            words.data.scamdiscordurls.forEach(word => {
-                if (message.content.includes(word)) {
-                    message.delete();
-                    const mention = '<@!' + message.author.id + '>';
-                    const embed = new MessageEmbed()
-                        .setTitle('Fake or scam discord detected!')
-                        .setDescription('Your message contained the link to a Discord scam link (' + word + '). Your message has been removed.')
-                        .setColor('#ff0000')
-                    message.channel.send( {content: mention, embeds: [embed]} )
-                }
-            });
+            //words.data.scamdiscordurls.forEach(word => {
+                //if (message.content.includes(word)) {
+                    //message.delete();
+                    //const mention = '<@!' + message.author.id + '>';
+                    //const embed = new MessageEmbed()
+                        //.setTitle('Fake or scam discord detected!')
+                        //.setDescription('Your message contained the link to a Discord scam link (' + word + '). Your message has been removed.')
+                        //.setColor('#ff0000')
+                    //message.channel.send( {content: mention, embeds: [embed]} )
+                //}
+            //});
             words.data.scamideviceunlockurls.forEach(word => {
                 if (message.content.includes(word)) {
                     message.delete();
