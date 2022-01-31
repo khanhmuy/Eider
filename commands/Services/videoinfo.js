@@ -41,13 +41,17 @@ module.exports = {
                 const uploadDate = info.videoDetails.publishDate;
                 const thumbnail = info.videoDetails.thumbnails[3].url;
                 const link = 'https://www.youtube.com/watch?v=' + id;
-                const rawDescription = info.videoDetails.description;
                 let description = '';
-                var descriptionLength = rawDescription.length;
-                if (descriptionLength > 995) {
-                    description = rawDescription.slice(0, 995) + ' (...)';
-                } else {
-                    description = rawDescription;
+                try {
+                    const rawDescription = info.videoDetails.description;
+                    var descriptionLength = rawDescription.length;
+                    if (rawDescription.length > 995) {
+                        description = rawDescription.slice(0, 995) + ' (...)';
+                    } else {
+                        description = rawDescription;
+                    } 
+                } catch(error) {
+                    description = 'No description available';
                 }
                 embed = new MessageEmbed()
                     .setTitle('' + title)
