@@ -12,7 +12,6 @@ module.exports = {
             .setDescription('I would like to thank people who helped me in the development of this bot.')
             .setColor('#C0DDFF')
             .setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
-            .setTimestamp()
             .addFields(
                 { name: 'CallMeEcho', value: 'The creator of this bot, who also helped me a lot in the early stages of learning Discord bot development.\n\n[Echo\'s GitHub](https://github.com/CallMeEchoCodes)' },
                 { name: 'llsc12', value: 'For helping me when I have issues with development in general, the developer of [llsc12.ml](https://llsc12.ml) used in the `videoinfo` command.\n\n[llsc12\'s GitHub](https://github.com/llsc12)' },

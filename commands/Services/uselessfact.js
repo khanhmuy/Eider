@@ -14,9 +14,8 @@ module.exports = {
             source = '[' + response.data.source + '](' + response.data.source_url + ')';
             embed = new MessageEmbed()
                 .setTitle('Useless fact:')
-                .setColor('#1EAEDB')
+                .setColor('RANDOM')
                 .setDescription(response.data.text)
-                .addField('Source:', source)
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
             wait.delete();

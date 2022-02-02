@@ -20,7 +20,7 @@ module.exports = {
 				.setDescription('[Click here to invite Eider to your servers!](https://hmuy.ml/eider)')
 				.addField('You can also join our support server:', '[Click here to join our support server!](https://discord.gg/rKuH5TRDy9)')
 			const github = new MessageEmbed()
-				.setTitle('Eider\'s Github repositories')
+				.setTitle('Eider\'s GitHub repositories')
 				.setColor('#C0DDFF')
 				.setDescription('[Click here to view Eider_hmuy\'s Github repositiory!](https://github.com/khanhmuy/eider_hmuy)\n[Click here to view Eider\'s Github repositiory!](https://github.com/CallMeEchoCodes/Eider)')
 			message.channel.send({ embeds: [ about, invite, github ] });

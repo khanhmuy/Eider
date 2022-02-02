@@ -2,7 +2,7 @@ const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'pronoun',
-    description: 'Gets a user\'s pronoun through PronounDB',
+    description: 'Gets a user\'s pronouns through PronounDB',
     usage: 'pronoun [user]',
     cooldown: 5,
     aliases: [ 'pronoundb', 'pronounDB', 'Pronoundb', 'PronounDB', 'pronouns' ],

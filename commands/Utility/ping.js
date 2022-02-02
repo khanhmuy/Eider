@@ -20,8 +20,8 @@ module.exports = {
 				.setColor(color)
 				.setTitle('Pong!')
 				.addFields(
-					{ name: 'Websocket Heartbeat', value: `${client.ws.ping}ms`, inline: true },
-					{ name: 'Roundtrip Latency', value: `${ping}ms`, inline: true }
+					{ name: '⏱️ Websocket Heartbeat', value: `${client.ws.ping}ms`, inline: true },
+					{ name: '⌛ Roundtrip Latency', value: `${ping}ms`, inline: true }
 				)
 			message.channel.send({ embeds: [embed] });
 			msg.delete();
