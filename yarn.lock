@@ -2443,6 +2443,11 @@
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
 
+"uwuifier@^4.0.4":
+  "integrity" "sha512-1t+aQ5Owy/RnfWFpqE6DneZmWng/cPROtTDC4EjAL6pd4rwzhZU/n9Hv0fjCwtpYN19AjnwTiJs+DCiDxo4HTw=="
+  "resolved" "https://registry.npmjs.org/uwuifier/-/uwuifier-4.0.4.tgz"
+  "version" "4.0.4"
+
 "v8-compile-cache@^2.0.3":
   "integrity" "sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA=="
   "resolved" "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz"
