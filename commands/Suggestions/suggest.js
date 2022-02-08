@@ -25,9 +25,9 @@ module.exports = {
 			embedMessage.react(':downvote:934609321008984127');
 		});
 		message.delete();
-		const sent = await message.channel.send(`Suggestion #${suggestionnum} submitted!`);
+		const sent = await message.channel.send(`Suggestion #${suggestionnum} submitted! Check it out in ${channel}`);
 		setTimeout(function(){
 			sent.delete();
-		}, 4000);
+		}, 6000);
 	},
 };

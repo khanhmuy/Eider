@@ -23,7 +23,7 @@ module.exports = {
 					{ name: '⏱️ Websocket Heartbeat', value: `${client.ws.ping}ms`, inline: true },
 					{ name: '⌛ Roundtrip Latency', value: `${ping}ms`, inline: true }
 				)
-			message.channel.send({ embeds: [embed] });
+			message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 			msg.delete();
 		});
 	},

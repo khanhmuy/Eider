@@ -43,6 +43,6 @@ module.exports = {
 			},
 			timestamp: new Date(),
 		};
-		message.channel.send({ embeds: [embed] });
+		message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 	},
 };

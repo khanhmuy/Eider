@@ -32,7 +32,7 @@ module.exports = {
 		if (command.args && !args[command.args - 1] && command.args != 'full') return message.reply(`That command requires ${command.args} arguments! The correct usage is: ${usage}`);
 		if (command.args === 'full') args = message.content.slice(prefix.length).slice(commandName.length);
 
-		// Check if command is guild Only
+		// Check if command is guild only
 		if (command.guildOnly === true && message.guild === null) {
 			return message.reply('That command is guild only!');
 		}

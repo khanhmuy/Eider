@@ -15,6 +15,6 @@ module.exports = {
 			.setColor('#00B300')
 			.setTitle('Success!')
 			.setDescription(`My prefix is now \`${client.data.get(`guild.${message.guild.id}.prefix`)}\` `);
-		message.channel.send({ embeds: [embed] });
+		message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 	},
 };
