@@ -28,13 +28,13 @@ module.exports = {
 
 		// Args system
 		const usage = `\`${prefix + command.usage}\``;
-		if (command.args && !args.length) return message.reply(`That command requires arguments! The correct usage is: ${usage}`);
-		if (command.args && !args[command.args - 1] && command.args != 'full') return message.reply(`That command requires ${command.args} arguments! The correct usage is: ${usage}`);
+		if (command.args && !args.length) return message.reply({content: `That command requires arguments! The correct usage is: ${usage}`, allowedMentions: { repliedUser: false }});
+		if (command.args && !args[command.args - 1] && command.args != 'full') return message.reply({content: `That command requires ${command.args} arguments! The correct usage is: ${usage}`, allowedMentions: { repliedUser: false }});
 		if (command.args === 'full') args = message.content.slice(prefix.length).slice(commandName.length);
 
 		// Check if command is guild only
 		if (command.guildOnly === true && message.guild === null) {
-			return message.reply('That command is guild only!');
+			return message.reply({content: 'That command is guild only!', allowedMentions: { repliedUser: false }});
 		}
 
 		// Permissions system
@@ -55,7 +55,7 @@ module.exports = {
 			const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 			if (now < expirationTime) {
 				const timeLeft = (expirationTime - now) / 1000;
-				return message.reply(`\`${prefix + commandName}\` is on cooldown for ${timeLeft.toFixed(1)} more second(s)`);
+				return message.reply({content: `\`${prefix + commandName}\` is on cooldown for ${timeLeft.toFixed(1)} more second(s)`, allowedMentions: { repliedUser: false }});
 			}
 		}
 		timestamps.set(message.author.id, now);
