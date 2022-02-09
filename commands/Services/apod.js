@@ -15,23 +15,30 @@ module.exports = {
         const wait = await message.channel.send('Please wait...');
         axios.get('https://api.nasa.gov/planetary/apod?api_key=' + key)
         .then(function (response) {
+            var hdurl = response.data.hdurl;
+            if (hdurl == undefined) {
+                hdurl = 'https://hmuy.ml/404'
+            }
             embed = new MessageEmbed()
                 .setColor('#105BD8')
                 .setTimestamp()
                 .setTitle(response.data.title)
                 .setImage(response.data.url)
                 .setDescription(response.data.explanation)
+                .setURL(response.data.url)
                 const row = new MessageActionRow()
                     .addComponents(
                         new MessageButton()
                             .setStyle('LINK')
-                            .setURL(response.data.hdurl)
+                            .setURL(hdurl)
                             .setLabel('View Full Image')
                     )
             wait.delete();
             message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
         })
         .catch(function (error) {
+            console.log(error);
+            wait.delete();
             message.reply('There was an error loading the image. Please try again later.').then (x => {
                 setTimeout(() => {
                     message.delete();
