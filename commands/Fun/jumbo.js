@@ -31,7 +31,7 @@ module.exports = {
             message.delete();
             message.channel.send({ embeds: [embed] });
         } if (!url) {
-            message.reply('Invalid emoji!, might be a Unicode emoji')
+            message.reply('Invalid emoji!, might be a Unicode emoji or an external / animated emoji.')
         }
     }
 };

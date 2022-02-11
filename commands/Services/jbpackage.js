@@ -8,7 +8,7 @@ module.exports = {
     cooldown: 2,
     aliases: ['tweak', 'tweakinfo', 'packageinfo', 'package'],
     async execute(client, message, args) {
-        const wait = await message.channel.send('Fetching info...');
+        const wait = await message.channel.send('Please wait...');
         if (!args[0]) {message.reply('Please provide a query!');}
         else {
             const input = '' + args;

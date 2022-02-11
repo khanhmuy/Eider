@@ -10,6 +10,7 @@ module.exports = {
             if (!args[0]) {return message.reply('You need to provide some text.');}
             const wait = await message.channel.send('please wait...');
             const res = await axios.get('https://nekobot.xyz/api/imagegen?type=clyde&text=' + args.join('%20'));
+            wait.delete();
             message.delete();
             message.channel.send(res.data.message);
         } catch(error) {
