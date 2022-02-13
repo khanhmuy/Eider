@@ -19,6 +19,6 @@ module.exports = {
                 { name: 'Eider is also somewhat based off of', value: '[Aquacious](https://github.com/Aquacious/Aquacious) :trol:' },
                 { name: 'And a big, big thanks to SillySock for letting me be hosted on their VPS', value: '\n[SillySock\'s GitHub](https://github.com/Sillysockk)' }
             )
-        message.channel.send({ embeds: [embed]});
+        message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
     }
 };

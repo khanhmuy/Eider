@@ -15,6 +15,6 @@ module.exports = {
         const r = parseInt(hex.slice(0, 2), 16);
         const g = parseInt(hex.slice(2, 4), 16);
         const b = parseInt(hex.slice(4, 6), 16);
-        message.reply({content: 'It is ' + r + ', ' + g + ', ' + b + '.', allowedMentions: { repliedUser: false }});
+        message.reply({content: 'It\'s ' + r + ', ' + g + ', ' + b + '.', allowedMentions: { repliedUser: false }});
     },
 };
