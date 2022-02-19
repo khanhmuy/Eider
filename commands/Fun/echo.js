@@ -12,8 +12,8 @@ module.exports = {
 				.setTitle('echo')
 				.setColor('ORANGE')
 				.setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-				.setDescription('Make me say stupid ig (to another channel)');
-				message.reply({ embeds: [embed] });
+				.setDescription('Make me say something stupid');
+				message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 			} else if(!args[0].match(/<#[0-9]+>/)) {
 				message.channel.send(args.join(' '));
 				message.react('✅');

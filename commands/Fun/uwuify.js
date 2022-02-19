@@ -22,7 +22,7 @@ module.exports = {
             }
         }
         catch (error) {
-            console.error(error);
+            console.log(error);
             message.reply('There was an error trying to execute that command!');
         }
     }

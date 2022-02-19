@@ -1,3 +1,5 @@
+const { message } = require('discord.js');
+
 module.exports = {
 	name: 'ready',
 	once: 'true',
@@ -7,6 +9,8 @@ module.exports = {
 		});
 		client.user.setActivity('just got started up');
 		console.log(`Connection established (${client.ws.ping}ms). Logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`)
+		const up = client.channels.cache.get('893124437510074368');
+		up.send('Online! \n(Websocket heartbeat: ' + client.ws.ping + 'ms)');
 		setInterval(() => {
 			let now = require('./../status.json')[Math.floor(Math.random() * require('./../status.json').length)]
 			if (!now.status) now.status = 'dnd';
