@@ -14,9 +14,9 @@ module.exports = {
 				.setColor('#C0DDFF')
 				.setTitle('Commands')
 				.setDescription(`Run \`${prefix}help [command]\` to see command info.`)
-				.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
+				//.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
 				.setTimestamp()
-				.setFooter('Last Updated');
+				.setFooter('Last updated');
 			const commandFolders = fs.readdirSync('./commands');
 			for (const folder of commandFolders) {
 				if (folder.endsWith('.js')) {
@@ -30,7 +30,7 @@ module.exports = {
 					array.push(`\`${prefix}${command.name}\``);
 				}
 
-				embed.addField(folder, array.join('\n'), true);
+				embed.addField(folder, array.join(', '), true);
 			}
 			message.reply({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
 

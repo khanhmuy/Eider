@@ -2,7 +2,7 @@ const axios = require('axios');
 const Vibrant = require('node-vibrant');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
-    name: 'package',
+    name: 'jbpackage',
     description: 'Get the info of a jailbreak package via Canister',
     usage: 'canister [query]',
     cooldown: 2,
@@ -85,7 +85,7 @@ module.exports = {
                 } catch(error) {
                     console.log(error)
                     wait.delete();
-                    message.reply('An error occurred!').then(x => {
+                    message.reply('An error occurred! Please try again later.').then(x => {
                         setTimeout(() => {
                             message.delete();
                             x.delete();
