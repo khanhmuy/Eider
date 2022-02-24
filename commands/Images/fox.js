@@ -7,27 +7,37 @@ module.exports = {
     usage: 'fox',
     cooldown: 4,
     aliases: ['foxes'],
-    async execute(client, message, args) {
-        const wait = await message.channel.send('Fetching...');
-        const res = await axios.get('https://randomfox.ca/floof/')
-        console.log(res)
-        let color = null
-        color = await Vibrant.from(res.data.image).getPalette()
-        color = color.Vibrant.hex
-        const embed = new MessageEmbed()
-            .setTitle('Random Fox!')
-            .setImage(res.data.image)
-            .setColor(color)
-            .setTimestamp()
-            .setURL(res.data.link)
-        const row = new MessageActionRow()
-            .addComponents(
-                new MessageButton()
-                    .setStyle('LINK')
-                    .setURL(res.data.link)
-                    .setLabel('View Orginal Image')
-            )
-        wait.delete();
-        message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+    async execute(client, message) {
+        try {
+            const wait = await message.channel.send('Fetching...');
+            const res = await axios.get('https://randomfox.ca/floof/')
+            console.log(res)
+            let color = null
+            color = await Vibrant.from(res.data.image).getPalette()
+            color = color.Vibrant.hex
+            const embed = new MessageEmbed()
+                .setTitle('Random Fox!')
+                .setImage(res.data.image)
+                .setColor(color)
+                .setTimestamp()
+                .setURL(res.data.link)
+            const row = new MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                        .setStyle('LINK')
+                        .setURL(res.data.link)
+                        .setLabel('View Orginal Image')
+                )
+            wait.delete();
+            message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+        } catch (error) {
+            wait.delete();
+            console.log(error);
+            message.reply('Something went wrong, try again later.').then(x => {
+                setTimeout(() => {
+                    x.delete();
+                }, 4000)
+            });
+        }
     },
 };
