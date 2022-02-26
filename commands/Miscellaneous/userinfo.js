@@ -7,7 +7,6 @@ module.exports = {
     aliases: ['user', 'info', 'usr', 'usrinfo'],
     cooldown:1,
     async execute(client, message, args) {
-        const wait = await message.channel.send('Give me a second please...');
         let color = 'BLACK';
         let status = 'Offline / Invisible';
         let member = message.mentions.members.first() || message.member,
@@ -51,7 +50,6 @@ module.exports = {
             )
             .setTimestamp()
             .setFooter('Requested by '+message.author.tag, message.author.displayAvatarURL({dynamic: true}));
-        wait.delete();
         message.reply({embeds: [embed], allowedMentions: { repliedUser: false }});
     }
 };

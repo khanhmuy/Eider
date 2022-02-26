@@ -11,7 +11,6 @@ module.exports = {
         try {
             const wait = await message.channel.send('Fetching...');
             const res = await axios.get('https://randomfox.ca/floof/')
-            console.log(res)
             let color = null
             color = await Vibrant.from(res.data.image).getPalette()
             color = color.Vibrant.hex

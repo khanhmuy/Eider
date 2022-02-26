@@ -1,4 +1,5 @@
 const axios = require('axios');
+const Vibrant = require('node-vibrant');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'cat',
@@ -7,32 +8,36 @@ module.exports = {
     cooldown: 2,
     aliases: [ 'kitty', 'kitten', 'kitties' ],
     async execute(client, message) {
-        let embed = '';
+        try {
         const wait = await message.channel.send('Fetching...');
-        axios.get('https://aws.random.cat/meow')
-        .then(function(response) {
-            embed = new MessageEmbed()
-                .setTitle('Cat image')
-                .setColor('BLUE')
+        const res = await axios.get('https://aws.random.cat/meow')
+        let color = null
+        color = await Vibrant.from(res.data.file).getPalette()
+        color = color.Vibrant.hex
+        const embed = new MessageEmbed()
+                .setTitle('Random Cat!')
+                .setColor(color)
                 .setTimestamp()
-                .setImage(response.data.file)
-                .setURL(response.data.file)
+                .setImage(res.data.file)
+                .setURL(res.data.file)
             const row = new MessageActionRow()
                 .addComponents(
                     new MessageButton()
                         .setStyle('LINK')
-                        .setURL(response.data.file)
+                        .setURL(res.data.file)
                         .setLabel('View Orginal Image')
                 )
         wait.delete();
         message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
-        })
-        .catch(function(error) {
+        }
+        catch (error) {
+            wait.delete();
+            console.log(error);
             message.reply('Something went wrong, try again later.').then(x => {
                 setTimeout(() => {
                     x.delete();
                 }, 4000)
             });
-        })
+        }
     },
 };

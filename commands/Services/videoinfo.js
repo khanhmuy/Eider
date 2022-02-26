@@ -1,3 +1,4 @@
+// this is kind of a fucking bodge but ok
 const ytdl = require('ytdl-core');
 const axios = require('axios');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
@@ -82,9 +83,9 @@ module.exports = {
                     message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
             }
             catch (error) {
-                console.log(error);
                 wait.delete();
-                message.reply('An error occurred! Please double check your video id or link!')
+                console.log(error);
+                message.reply('An error occurred! Please double check your video ID / link, or simply try later.')
             }
             
         }
