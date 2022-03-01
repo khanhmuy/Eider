@@ -31,8 +31,13 @@ module.exports = {
                     seconds = '0' + rawSeconds;
                 } else {seconds = rawSeconds};
                 const duration = `${minutes}:${seconds}`;
-                const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
-                const dislikeCount = dislike.data.dislikes
+                let dislikeCount = '';
+                try {
+                    const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
+                    dislikeCount = dislike.data.dislikes
+                } catch {
+                    dislikeCount = 'Not available';
+                }
                 const likeCount = info.videoDetails.likes;
                 const views = info.videoDetails.viewCount;
                 const title = info.videoDetails.title;
@@ -52,7 +57,7 @@ module.exports = {
                         description = rawDescription;
                     } 
                 } catch(error) {
-                    description = 'No description available';
+                    description = 'No description available.';
                 }
                 embed = new MessageEmbed()
                     .setTitle('' + title)
