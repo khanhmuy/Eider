@@ -25,15 +25,21 @@ module.exports = {
                     thumbnail = 'https://en.wikipedia.org/static/images/project-logos/enwiki.png'
                     color = 'BLUE'
                 }
+                let extract = '';
+                if (res.extract.length > 1024) {
+                    extract = res.extract.substring(0, 1018) + '(...)';
+                } else {
+                    extract = res.extract;
+                }
                 const embed = new MessageEmbed()
                     .setTitle(res.title)
                     .setThumbnail(thumbnail)
                     .setDescription(res.description)
-                    .addField('\u200b', res.extract)
+                    .addField('\u200b', extract)
                     .setColor(color)
                     .setTimestamp()
-                wait.delete();
                 message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+                wait.delete();
             }
         } catch (error) {
             wait.delete();
