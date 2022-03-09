@@ -13,11 +13,11 @@ module.exports = {
 				.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
 				.setColor('#C0DDFF')
 				.addField('To get started:', 'Use `' + prefix + 'help` to see all my commands.')
-				.setFooter('Thank you for adding Eider to our server, we really appreciate it!');
+				.setFooter('Thank you for adding Eider to your server(s), we really appreciate it!');
 			const invite = new MessageEmbed()
 				.setTitle('Invite Eider to your servers!')
 				.setColor('#C0DDFF')
-				.setDescription('[Click here to invite Eider to your servers!](https://hmuy.ml/eider)')
+				.setDescription('[Click here to invite Eider to your servers!](https://discord.com/oauth2/authorize?client_id=882454061763412069&permissions=8&scope=bot)')
 				.addField('You can also join our support server:', '[Click here to join our support server!](https://discord.gg/rKuH5TRDy9)')
 			const github = new MessageEmbed()
 				.setTitle('Eider\'s GitHub repositories')
