@@ -1,5 +1,4 @@
 const { MessageEmbed, Permissions } = require('discord.js');
-
 module.exports = {
 	name: 'prefix',
 	description: 'Set this guilds prefix',

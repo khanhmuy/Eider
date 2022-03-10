@@ -31,7 +31,12 @@ module.exports = {
             message.delete();
             message.channel.send({ embeds: [embed] });
         } if (!url) {
-            message.reply('Invalid emoji!, might be a Unicode emoji or an external / animated emoji.')
+            message.reply('Invalid emoji!, might be a Unicode emoji or an external / animated emoji that you don\'t have access to. ~~(get nitro you cheap mf)~~').then(x => {
+                setTimeout(() => {
+                    message.delete();
+                    x.delete();
+                }, 4000);
+            })
         }
     }
 };
