@@ -58,7 +58,15 @@ module.exports = {
                                 .setStyle('LINK')
                                 .setURL(info.data.data[0].depiction || 'https://404.github.io/')
                                 .setEmoji('🔍')
-                                .setLabel('View Depiction'),
+                                .setLabel('View Depiction')
+                        );
+                    const row2 = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setEmoji('955600590824685679')
+                                .setStyle('LINK')
+                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=saily&repo=${info.data.data[0].repository.uri}`)
+                                .setLabel('Add Repo To Saily'),
                             new MessageButton()
                                 .setEmoji('931391570320715887')
                                 .setStyle('LINK')
@@ -79,9 +87,9 @@ module.exports = {
                                 .setStyle('LINK')
                                 .setURL(`https://sharerepo.stkc.win/v2/?pkgman=installer&repo=${info.data.data[0].repository.uri}`)
                                 .setLabel('Add Repo To Installer')
-                        );
+                        )
                     wait.delete();
-                    message.reply({ embeds: [embed], components:[row] , allowedMentions: { repliedUser: false } });
+                    message.reply({ embeds: [embed], components:[row, row2] , allowedMentions: { repliedUser: false } });
                 } catch(error) {
                     console.log(error)
                     wait.delete();
