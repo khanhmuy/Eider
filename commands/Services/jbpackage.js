@@ -4,7 +4,7 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'jbpackage',
     description: 'Get the info of a jailbreak package via Canister',
-    usage: 'canister [query]',
+    usage: 'jbpackage <query>',
     cooldown: 2,
     aliases: ['tweak', 'tweakinfo', 'packageinfo', 'package'],
     async execute(client, message, args) {

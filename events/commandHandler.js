@@ -23,7 +23,7 @@ module.exports = {
 		try {
 			client.data.set('cmdCounterTotal', parseInt(client.data.get('cmdCounterTotal')) + 1);
 		} catch (err) {
-			console.log('Can no longer store commands!');
+			console.log('Can no longer store command count!');
 		}
 
 		// Args system
@@ -41,7 +41,7 @@ module.exports = {
 		if (command.permissions) {
 			console.log(message.member.permissions.has(command.permissions));
 			if (message.member.permissions.has(command.permissions) === false) {
-				return message.reply('You don\'t have permission to run that command!');
+				return message.reply('You don\'t have the permission to run that command!');
 			}
 		}
 

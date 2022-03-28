@@ -29,6 +29,7 @@ module.exports = {
             'Very doubtful.'
         ]
         const question = args.join(' ');
+        if (!question) return message.reply({content: 'Please ask a question!', allowedMentions: { repliedUser: false }});
         const answer = Math.floor(Math.random() * answers.length)
         const embed = new MessageEmbed()
             .setColor('RANDOM')

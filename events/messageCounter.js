@@ -5,7 +5,7 @@ module.exports = {
 		try {
 			client.data.set('msgCounterTotal', parseInt(client.data.get('msgCounterTotal')) + 1);
 		} catch (err) {
-			console.log('Can no longer store messages!');
+			console.log('Can no longer store message counter!');
 		}
 	},
 };

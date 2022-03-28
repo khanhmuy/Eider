@@ -4,7 +4,7 @@ const tldr = require('wikipedia-tldr');
 module.exports = {
     name: 'wikipedia',
     description: 'Search for things on Wikipedia!',
-    usage: 'wikipedia <search term>',
+    usage: 'wikipedia <query>',
     cooldown: 2,
     aliases: [ 'wiki' ],
     async execute(client, message, args) {

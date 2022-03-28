@@ -2,7 +2,7 @@ const {MessageEmbed} = require('discord.js');
 const axios = require('axios');
 module.exports = {
     name: 'tweet',
-    description: 'pretend you\'re tweeting (i would use dankmemer\'s api but mf is broken',
+    description: 'pretend you\'re tweeting (i would use dankmemer\'s api but mf is broken)',
     usage: 'tweet [user] <message>',
     cooldown: 3,
     async execute(client, message, args) {

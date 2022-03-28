@@ -45,7 +45,7 @@
         "status": "online"
     },
     {
-        "name": "F1",
+        "name": "Formula One",
         "type": "COMPETING",
         "status": "dnd"
     },
@@ -75,7 +75,7 @@
         "status": "dnd"
     },
     {
-        "name": "`,help` or sum idk",
+        "name": "`,help` or whatever the prefix idk",
         "type": "PLAYING",
         "status": "online"
     },

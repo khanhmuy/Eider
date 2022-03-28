@@ -5,7 +5,7 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'videoinfo',
     description: 'Get the information of a youtube video',
-    usage: 'videoinfo [video_id] or [url]',
+    usage: 'videoinfo <video_id/url>',
     cooldown: 2,
     aliases: ['videoinfo', 'ytvidinfo', 'vidinfo'],
     async execute(client, message, args) {
