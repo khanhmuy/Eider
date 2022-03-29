@@ -1,6 +1,7 @@
 module.exports = {
     name: 'roll',
     description: 'Pick a number between x and y',
+    usage: 'roll <x> <y>',
     cooldown: 2,
     args: 2,
     usage: 'roll <min> <max>',

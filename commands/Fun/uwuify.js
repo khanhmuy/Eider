@@ -4,7 +4,7 @@ const {MessageEmbed} = require('discord.js');
 module.exports = {
     name: 'uwuifier',
     description: 'uwuifi some text',
-    usage: 'uwuifier [text]',
+    usage: 'uwuifier <text>',
     cooldown: 2,
     aliases: ['uwu', 'uwuify'],
     async execute(client, message, args) {

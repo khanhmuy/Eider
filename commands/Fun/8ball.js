@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: '8ball',
     description: 'Replys with a yes/no answer to your question',
-    usage: '8ball [question]',
+    usage: '8ball <question>',
     cooldown: 5,
     aliases: ['8ball', '8b'],
     async execute(client, message, args) {
