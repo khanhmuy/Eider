@@ -67,6 +67,7 @@ module.exports = {
 			if (command.usage) {
 				usage = `\`${prefix + command.usage}\``;
 			} else {usage = 'Not Provided';}
+			try {
 			const embed = new MessageEmbed()
 				.setTitle(`${prefix + command.name}`)
 				.setDescription(command.description)
@@ -74,6 +75,9 @@ module.exports = {
 				.addField('Usage', usage, true)
 				.setColor('#C0DDFF');
 			message.reply({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
+			} catch (err) {
+				console.log(err);
+			}
 		}
 	},
 };
