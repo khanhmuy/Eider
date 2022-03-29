@@ -15,6 +15,7 @@ require('dotenv').config();
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_BANS] });
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+const loggingFiles = fs.readdirSync('./events/logging').filter(file => file.endsWith('.js'));
 const commandFolders = fs.readdirSync('./commands');
 client.commands = new Collection();
 client.cooldowns = new Collection();
@@ -35,6 +36,16 @@ try {
 			client.on(event.name, (...args) => event.execute(client, ...args));
 		}
 		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./events/${file}`).name} event`));
+	}
+	console.log('--Logging--');
+	for (const file of loggingFiles) {
+		const event = require(`./events/logging/${file}`);
+		if (event.once) {
+			client.once(event.name, (...args) => event.execute(client, ...args));
+		} else {
+			client.on(event.name, (...args) => event.execute(client, ...args));
+		}
+		console.log(chalk.hex('#808080')('Loaded event ') + chalk.hex('#3c850c')(`${file} - ${require(`./events/logging/${file}`).name} event`));
 	}
 	console.log('--Commands--');
 	for (const folder of commandFolders) {
