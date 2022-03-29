@@ -4,9 +4,9 @@ module.exports = {
     async execute (client, message) {
         try {
             let deleteEmbed = new MessageEmbed()
-                .setAuthor(message.author.username + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
+                .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`:wastebasket: Message deleted in <#${message.channelId}>`)
-                .setColor("#fc3c3c")
+                .setColor("BLUE")
                 .addField("Message", `${message.content}`)
                 .addField(`Message ID`, `${message.id}`, true)
                 .addField(`Author`, `<@!${message.author.id}>`, true)

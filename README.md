@@ -2,6 +2,9 @@
 Fun Discord bot I guess.
 - [Invite link](https://tiny.cc/eider_hmuy) (try refreshing if it doesn't work)
 
+## Info
+- Discord Gateway Intents used: `Intents.FLAGS.GUILDS` (used to get server info), `Intents.FLAGS.GUILD_MEMBERS` (used to get user info and logging), Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES (used to get user status in the `userinfo` command), `Intents.FLAGS.GUILD_BANS` (used for logging, moderation commands eta June 2022)
+
 ## Prerequisites:
 - Anything that can run nodejs (iOS devices don't work, I tried).
 - Nodejs: 16.13 or newer.
