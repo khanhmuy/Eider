@@ -3,8 +3,8 @@ module.exports = {
     name: 'messageUpdate',
     async execute (client, message) {
         try {
-            if (message.embeds) {}
-            else {
+            console.log(message)
+            if (message.embeds.length == 0) {
                 let deleteEmbed = new MessageEmbed()
                     .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
                     .setDescription(`:pencil2: Message edited in <#${message.channelId}>. [Jump to message](https://discordapp.com/channels/${message.guild.id}/${message.channelId}/${message.id})`)
@@ -19,6 +19,7 @@ module.exports = {
                 let logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
                 logChannel.send({embeds: [deleteEmbed]});
             }
+            else return;
         } catch (err) {
             console.log(err);
         }
