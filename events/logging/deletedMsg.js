@@ -3,6 +3,7 @@ module.exports = {
     name: 'messageDelete',
     async execute (client, message) {
         try {
+            if (message.embeds) {}
             let deleteEmbed = new MessageEmbed()
                 .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`:wastebasket: Message deleted in <#${message.channelId}>`)
