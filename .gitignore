@@ -1,19 +1,1 @@
-# dependencies
-/node_modules
 
-# System Files
-.DS_Store
-thumbs.db
-
-# IDE Things
-/.idea
-/.vscode
-
-# Config Files
-/data
-.env
-
-# launch file
-bot.cmd
-
-package-lock.json
