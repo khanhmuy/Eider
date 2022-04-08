@@ -73,6 +73,7 @@ module.exports = {
 					.setColor('RED')
 					.setTimestamp();
 				message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+				console.log(err)
 			} catch (err) {
 				console.log(err);
 			}

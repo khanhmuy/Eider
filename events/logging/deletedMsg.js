@@ -18,7 +18,6 @@ module.exports = {
                 logChannel.send({embeds: [deleteEmbed]});
             } else return
         } catch (err) {
-            console.log(err);
         }
     },
 };

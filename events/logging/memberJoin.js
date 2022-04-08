@@ -16,7 +16,6 @@ module.exports = {
             const logChannel = client.channels.cache.get(client.data.get(`guild.${member.guild.id}.logChannel`));
             logChannel.send({embeds: [embed]});
         } catch (err) {
-            console.log(err);
         }
     }
 };
