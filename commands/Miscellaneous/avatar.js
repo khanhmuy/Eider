@@ -41,8 +41,6 @@ module.exports = {
 						}, 5000);
 					})}
 				}
-				console.log(user);
-				console.log(user.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));
 				color = await Vibrant.from(user.user.avatarURL({ format: 'png', size: 1024 })).getPalette();
 				const rawLink = user.user.avatarURL();
 				jpeg = rawLink.slice(0, 86) + '.jpg?size=1024';
