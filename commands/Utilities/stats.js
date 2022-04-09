@@ -13,27 +13,27 @@ module.exports = {
 			},
 			fields: [
 				{
-					name: 'Servers I\'m In',
+					name: '🏠 Servers I\'m In',
 					value: `${client.guilds.cache.size}`,
 					inline: true,
 				},
 				{
-					name: 'Members I\'m Serving',
+					name: '👥 Members I\'m Serving',
 					value: `${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}`,
 					inline: true,
 				},
 				{
-					name: 'Members in this guild',
+					name: '👥 Members in this guild',
 					value: `${message.guild.memberCount}`,
 					inline: true,
 				},
 				{
-					name: 'Total Received Messages',
+					name: '💬 Total Received Messages',
 					value: `${client.data.get('msgCounterTotal')}`,
 					inline: true,
 				},
 				{
-					name: 'Total Received Commands',
+					name: '🤖 Total Received Commands',
 					value: `${client.data.get('cmdCounterTotal')}`,
 					inline: true,
 				},
