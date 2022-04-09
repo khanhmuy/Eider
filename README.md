@@ -1,14 +1,14 @@
 # eider_hmuy
 Fun Discord bot I guess.
-- [Invite link](https://tiny.cc/eider_hmuy) (try refreshing if it doesn't work)
+- [Invite link](hmuy.ml/eider) (try refreshing if it doesn't work)
 
 ## Info
-- Discord Gateway Intents used: `Intents.FLAGS.GUILDS` (used to get server info), `Intents.FLAGS.GUILD_MEMBERS` (used to get user info and logging), Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES (used to get user status in the `userinfo` command), `Intents.FLAGS.GUILD_BANS` (used for logging, moderation commands eta June 2022)
+- Discord Gateway Intents used: `Intents.FLAGS.GUILDS` (used to get server info), `Intents.FLAGS.GUILD_MEMBERS` (used to get user info and logging), `Intents.FLAGS.GUILD_MESSAGES`, `Intents.FLAGS.GUILD_PRESENCES` (used to get user presence status in the `userinfo` command), `Intents.FLAGS.GUILD_BANS` (used for logging, moderation commands eta June 2022)
 
 ## Prerequisites:
-- Anything that can run Node.JS (iOS devices don't work, I tried).
-- Nodejs: 16.13 or newer.
-- A brain and common sense.
+- Anything that can run Node.js (iOS devices don't work, I tried).
+- Node.js: 16.13 or newer.
+- A brain and some common sense.
 
 ## How to host it yourself: 
 - Step 1: Clone this repository
@@ -21,5 +21,5 @@ Fun Discord bot I guess.
 ## Acknowledgements: 
 - [CallMeEcho](https://github.com/CallMeEchoCodes) and [llsc12](https://github.com/llsc12) for helping me a lot with the code, js stuff, etc 
 - [CallMeEcho](https://github.com/CallMeEchoCodes) for creating this bot in the first place (this is a fork of it btw)
-- APIs used in this bot: [PronounDB](https://pronoundb.org), [NASA's OpenAPIs](https://api.nasa.gov/), [Inspiration API](https://inspiration.goprogram.ai/), [Urban Dictionary API](https://www.urbandictionary.com/), [Useless Facts API](https://uselessfacts.jsph.pl/random.json?language=en), [Bored API](https://www.boredapi.com/api/activity/), [Return Youtube Dislikes API](https://returnyoutubedislike.com) and ~~[llsc12.ml](https://llsc12.ml)~~ replaced by [ytdl-core](https://www.npmjs.com/package/ytdl-core).
+- APIs used in this bot: [PronounDB](https://pronoundb.org), [NASA's OpenAPIs](https://api.nasa.gov/), [Inspiration API](https://inspiration.goprogram.ai/), [Urban Dictionary API](https://www.urbandictionary.com/), [Useless Facts API](https://uselessfacts.jsph.pl/random.json?language=en), [Bored API](https://www.boredapi.com/api/activity/), [Return Youtube Dislikes API](https://returnyoutubedislike.com) and ~~[llsc12.ml](https://llsc12.ml)~~ replaced by [ytdl-core](https://www.npmjs.com/package/ytdl-core), [Canister](https://canister.me/).
 - A big, big, big thanks to [SillySock](https://github.com/Sillysockk) for letting me host Eider on their VPS.
