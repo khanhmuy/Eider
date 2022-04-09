@@ -9,10 +9,10 @@ module.exports = {
     async execute(client, message, args) {
         let color = 'BLACK';
         let status = 'Offline / Invisible';
-        let member = message.mentions.members.first() || message.member,
+        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0])|| message.member;
             user = member.user;
+            console.log(member, user);
         try {
-            const statusResponse = member.presence.status;
             switch(member.presence.status){
                 case('online'):
                     color = 'GREEN'

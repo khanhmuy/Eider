@@ -26,31 +26,41 @@ module.exports = {
 				.setImage(message.author.displayAvatarURL({size: 1024, dynamic: true}))
 				.setURL(png);
 			} else {
-				if (!args[0].match(/<@!*&*[0-9]+>/)) return message.reply('Thats not a user!').then(x => {
-					setTimeout(() => {
-						message.delete();
-						x.delete();
-					}, 5000);
-				});
-				color = await Vibrant.from(message.mentions.users.first().displayAvatarURL({ format: 'png', size: 1024 })).getPalette();
-				const rawLink = message.mentions.users.first().displayAvatarURL();
+				let id = '';
+				let user = '';
+				if (!args[0].match(/<@!*&*[0-9]+>/)) {
+					id = args[0];
+					user = await message.guild.members.cache.get(id);
+				} if (args[0].match(/<@!*&*[0-9]+>/)) {
+					id = message.mentions.users.first();
+					user = await message.guild.members.cache.get(id.id);
+					if (id === undefined) {return message.channel.send('Please provide a valid user!').then(x => {
+						setTimeout(() => {
+							message.delete();
+							x.delete();
+						}, 5000);
+					})}
+				}
+				console.log(user);
+				console.log(user.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));
+				color = await Vibrant.from(user.user.avatarURL({ format: 'png', size: 1024 })).getPalette();
+				const rawLink = user.user.avatarURL();
 				jpeg = rawLink.slice(0, 86) + '.jpg?size=1024';
 				png = rawLink.slice(0, 86) + '.png?size=1024';
 				webp = rawLink.slice(0, 86) + '.webp?size=1024';
 				embed = new MessageEmbed()
-					.setTitle(`Avatar of ${message.mentions.users.first().username}`)
-					.addField('Download as', '[jpeg](' + jpeg + ') | [png](' + png + ') | [webp](' + webp + ')')
+					.setTitle(`Avatar of ${user.user.username}`)
+					.addField('Download as', `[jpeg](${jpeg}) | [png](${png}) | [webp](${webp})`)
 					.setColor(color.Vibrant.hex)
-					.setImage(message.mentions.users.first().displayAvatarURL({size: 1024, dynamic: true}))
+					.setImage(user.user.avatarURL({size: 1024, dynamic: true}))
 					.setURL(png);
 			}
 			wait.delete();
 			message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 		} catch(error) {
-			return message.reply('An error occurred!').then(x => {
+			console.log(error);
+			message.reply('An error occurred!').then(x => {
 				setTimeout(() => {
-					wait.delete();
-					console.log(error)
 					message.delete();
 					x.delete();
 				}, 4000);
