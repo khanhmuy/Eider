@@ -40,7 +40,7 @@ module.exports = {
             .setColor(color || 'BLACK')
             .setURL('https://discord.com/users/' + user.id)
             .setThumbnail(user.displayAvatarURL({ dynamic:true })+'?size=1024')
-            .setDescription('[Avatar](' + user.displayAvatarURL({ dynamic:true })+'size=1024' + ')')
+            .setDescription('[Avatar](' + user.displayAvatarURL({ dynamic:true })+'?size=1024' + ')')
             .addFields(
                 { name: 'Account created at', value: moment(user.createdAt).format('LLLL'), inline: true },
                 { name: 'Joined this server at', value: moment(user.joinedAt).format('LLLL'), inline: true },

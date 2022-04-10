@@ -8,7 +8,6 @@ module.exports = {
     aliases: [ 'inspire', 'quotes', 'quote' ],
     async execute(client, message) {
         let embed = '';
-        const wait = await message.channel.send('Fetching...');
         axios.get('https://inspiration.goprogram.ai/')
         .then(function(response) {
             embed = new MessageEmbed()
@@ -18,7 +17,6 @@ module.exports = {
                 .addField('Author:', response.data.author)
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
-        wait.delete();
         message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
         })
         .catch(function(error) {

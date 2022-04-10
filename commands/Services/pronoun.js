@@ -73,14 +73,14 @@ module.exports = {
                 pronoun = 'Avoid pronouns, use my name.'
             }
             let replyMention = '<@!' + id + '>';
-            wait.delete();
             const embed = new MessageEmbed()
-                .setColor('#262626')
+            .setColor('#262626')
                 .setTitle(`PronounDB`)
                 .setDescription('Pronouns of ' + replyMention + ' is: ' + pronoun)
                 .setTimestamp()
-            message.reply({ embeds: [embed] }).then(x => {
-                setTimeout(() => {
+                message.reply({ embeds: [embed] }).then(x => {
+                    wait.delete();
+                    setTimeout(() => {
                     message.delete();
                     x.delete();
                 }, 20000);

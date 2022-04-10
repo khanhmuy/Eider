@@ -84,8 +84,8 @@ module.exports = {
                                 .setLabel('View Video on YouTube')
                                 .setURL(link)
                         )
-                    wait.delete();
                     message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+                    wait.delete();
             }
             catch (error) {
                 wait.delete();

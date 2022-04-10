@@ -33,8 +33,8 @@ module.exports = {
                             .setURL(hdurl)
                             .setLabel('View Full Image')
                     )
-            wait.delete();
-            message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+                message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+                wait.delete();
         })
         .catch(function (error) {
             console.log(error);

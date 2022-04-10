@@ -20,3 +20,4 @@ package-lock.json
 
 # Indev
 /Commands/Music
+/Commands/Moderation

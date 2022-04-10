@@ -47,8 +47,8 @@ module.exports = {
                         .setURL(data.list[0].permalink)
                         .setLabel('View Definition on Urban Dictionary')
                 )
-            wait.delete();
             message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+            wait.delete();
         } catch(error) {
             wait.delete();
             console.log(error)

@@ -53,8 +53,8 @@ module.exports = {
 					.setImage(user.user.avatarURL({size: 1024, dynamic: true}))
 					.setURL(png);
 			}
-			wait.delete();
 			message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+			wait.delete();
 		} catch(error) {
 			console.log(error);
 			message.reply('An error occurred!').then(x => {

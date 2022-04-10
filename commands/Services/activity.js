@@ -19,8 +19,8 @@ module.exports = {
                 .addField('Type:', response.data.type)
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
-        wait.delete();
-        message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+            message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+            wait.delete();
         })
         .catch(function(error) {
             message.reply('Something went wrong, try again later.').then(x => {

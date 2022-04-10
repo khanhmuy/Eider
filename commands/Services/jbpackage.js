@@ -1,5 +1,5 @@
-const axios = require('axios');
 const Vibrant = require('node-vibrant');
+const axios = require('axios');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'jbpackage',
@@ -88,8 +88,8 @@ module.exports = {
                                 .setURL(`https://sharerepo.stkc.win/v2/?pkgman=installer&repo=${info.data.data[0].repository.uri}`)
                                 .setLabel('Add Repo To Installer')
                         )
-                    wait.delete();
                     message.reply({ embeds: [embed], components:[row, row2] , allowedMentions: { repliedUser: false } });
+                    wait.delete();
                 } catch(error) {
                     console.log(error)
                     wait.delete();

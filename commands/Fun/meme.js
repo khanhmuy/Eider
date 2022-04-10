@@ -20,8 +20,8 @@ module.exports = {
 					.setImage(res.data.memes[0].url)
 					.setURL(res.data.memes[0].postLink)
 					.setFooter(`Author: ${res.data.memes[0].author}`);
-			wait.delete();
-			message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+				message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+				wait.delete();
 		} catch (error) {
 			wait.delete();
 			console.log(error);

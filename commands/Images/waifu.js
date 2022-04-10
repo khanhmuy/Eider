@@ -26,8 +26,8 @@ module.exports = {
                         .setURL(res.data.url)
                         .setLabel('View Orginal Image')
                 )
-            wait.delete();
             message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
+            wait.delete();
         }
         catch (error) {
             wait.delete();

@@ -8,7 +8,6 @@ module.exports = {
     aliases: [ 'uselessfacts', 'trueig', 'trueiguess' ],
     async execute(client, message) {
         let embed = '';
-        const wait = await message.channel.send('Fetching...');
         axios.get('https://uselessfacts.jsph.pl/random.json?language=en')
         .then(function(response) {
             source = '[' + response.data.source + '](' + response.data.source_url + ')';
@@ -18,7 +17,6 @@ module.exports = {
                 .setDescription(response.data.text)
                 .setFooter('Requested by ' + message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
-            wait.delete();
             message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
         })
         .catch(function(error) {

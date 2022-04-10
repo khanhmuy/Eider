@@ -26,8 +26,8 @@ module.exports = {
         result.items.forEach(result => {
             if (result.type !== 'video') return
             embed.addField(result.title, `Channel: [${result.author.name}](${result.author.url})\n 👀: ${result.views} \nDuration: ${result.duration}\nUploaded ${result.uploadedAt}\n\n[View in YouTube](${result.url})`)
-          })
-        wait.delete();
+        })
         message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+        wait.delete();
     }
 }
