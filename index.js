@@ -12,7 +12,7 @@ async function error(err) {
 }
 
 require('dotenv').config();
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_BANS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_VOICE_STATES] });
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const loggingFiles = fs.readdirSync('./events/logging').filter(file => file.endsWith('.js'));
