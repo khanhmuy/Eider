@@ -15,9 +15,10 @@ Fun Discord bot I guess.
 - Step 2: Create a Discord application, then create a bot (MAKE SURE YOUR ACCOUNT HAS 2FA ENABLED or most shit will just crash) and get the bot token (save it somewhere and **DO NOT SHARE WITH ANYONE**)
 - Step 3: Create a file named `.env` with the content of `DISCORD_TOKEN=YOURBOTTOKEN` (replace `YOURBOTTOKEN` with the token from step 2. Optionally, you can also put your NASA OpenAPI key in for apod (Astronomy Picture of the Day). 
 - Step 4: Open a terminal window, cd to the folder where the repo is saved and type `npm i`.
-- Step 5: Type `node .` or `node index.js`, or if you want to be fancy, install [pm2](https://www.npmjs.com/package/pm2) and then type `pm2 start index.js`.
+- Step 5: Type `npm start .` or `node index.js`.
 - Enjoy!
-
+##### DEV
+- Type `npm run dev`
 ## Acknowledgements: 
 - [CallMeEcho](https://github.com/CallMeEchoCodes) and [llsc12](https://github.com/llsc12) for helping me a lot with the code, js stuff, etc 
 - [CallMeEcho](https://github.com/CallMeEchoCodes) for creating this bot in the first place (this is a fork of it btw)
