@@ -17,7 +17,7 @@ module.exports = {
 			.setTitle(`Suggestion #${suggestionnum}`)
 			.setDescription(args)
 			.setColor('BLUE')
-			.setAuthor(message.author.tag, message.author.avatarURL());
+			.setAuthor(message.author.tag, message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }));
 		const channel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.suggestChannel`));
 		channel.send({ embeds: [embed] }).then(embedMessage => {
 			embedMessage.react(':upvote:934609241493360641');
