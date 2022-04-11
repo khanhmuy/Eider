@@ -40,6 +40,17 @@
     "http-response-object" "^3.0.1"
     "parse-cache-control" "^1.0.1"
 
+"@discordjs/builders@^0.12.0":
+  "integrity" "sha512-Vx2MjUZd6QVo1uS2uWt708Fd6cHWGFblAvbpL5EBO+kLl0BADmPwwvts+YJ/VfSywed6Vsk6K2cEooR/Ytjhjw=="
+  "resolved" "https://registry.npmjs.org/@discordjs/builders/-/builders-0.12.0.tgz"
+  "version" "0.12.0"
+  dependencies:
+    "@sindresorhus/is" "^4.3.0"
+    "discord-api-types" "^0.26.1"
+    "ts-mixer" "^6.0.0"
+    "tslib" "^2.3.1"
+    "zod" "^3.11.6"
+
 "@discordjs/builders@^0.4.0":
   "integrity" "sha512-EiwLltKph6TSaPJIzJYdzNc1PnA2ZNaaE0t0ODg3ghnpVHqfgd0YX9/srsleYHW2cw1sfIq+kbM+h0etf7GWLA=="
   "resolved" "https://registry.npmjs.org/@discordjs/builders/-/builders-0.4.0.tgz"
@@ -343,10 +354,10 @@
   "resolved" "https://registry.npmjs.org/@sapphire/async-queue/-/async-queue-1.1.9.tgz"
   "version" "1.1.9"
 
-"@sindresorhus/is@^4.0.1":
-  "integrity" "sha512-Qm9hBEBu18wt1PO2flE7LPb30BHMQt1eQgbV76YntdNk73XZGpn3izvGTYxbGgzXKgbCjiia0uxTd3aTNQrY/g=="
-  "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-4.0.1.tgz"
-  "version" "4.0.1"
+"@sindresorhus/is@^4.0.1", "@sindresorhus/is@^4.3.0":
+  "integrity" "sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw=="
+  "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-4.6.0.tgz"
+  "version" "4.6.0"
 
 "@tootallnate/once@2":
   "integrity" "sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A=="
@@ -853,6 +864,11 @@
   "integrity" "sha512-X0uA2a92cRjowUEXpLZIHWl4jiX1NsUpDhcEOpa1/hpO1vkaokgZ8kkPtPih9hHth5UVQ3mHBu/PpB4qjyfJ4A=="
   "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.24.0.tgz"
   "version" "0.24.0"
+
+"discord-api-types@^0.26.1":
+  "integrity" "sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ=="
+  "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.26.1.tgz"
+  "version" "0.26.1"
 
 "discord.js@^13.0.1":
   "integrity" "sha512-pEODCFfxypBnGEYpSgjkn1jt70raCS1um7Zp0AXEfW1DcR29wISzQ/WeWdnjP5KTXGi0LTtkRiUjOsMgSoukxA=="
@@ -2641,3 +2657,8 @@
   "version" "3.6.0"
   dependencies:
     "miniget" "^4.2.1"
+
+"zod@^3.11.6":
+  "integrity" "sha512-U9BFLb2GO34Sfo9IUYp0w3wJLlmcyGoMd75qU9yf+DrdGA4kEx6e+l9KOkAlyUO0PSQzZCa3TR4qVlcmwqSDuw=="
+  "resolved" "https://registry.npmjs.org/zod/-/zod-3.14.4.tgz"
+  "version" "3.14.4"
