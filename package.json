@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "CallMeEcho",
   "license": "MIT",
+    "scripts": {
+    "start": "node index",
+    "dev": "nodemon"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
     "@discordjs/opus": "^0.5.3",
@@ -30,5 +34,6 @@
   },
   "devDependencies": {
     "eslint": "^7.31.0"
+    "nodemon": "^2.0.15",
   }
 }
