@@ -415,6 +415,18 @@
   dependencies:
     "@types/node" "*"
 
+"@types/yargs-parser@*":
+  "integrity" "sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA=="
+  "resolved" "https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-21.0.0.tgz"
+  "version" "21.0.0"
+
+"@types/yargs@^15.0.12":
+  "integrity" "sha512-yEJzHoxf6SyQGhBhIYGXQDSCkJjB6HohDShto7m8vaKg9Yp0Yn8+71J9eakh2bnPg6BfsH9PRMhiRTZnd4eXGQ=="
+  "resolved" "https://registry.npmjs.org/@types/yargs/-/yargs-15.0.14.tgz"
+  "version" "15.0.14"
+  dependencies:
+    "@types/yargs-parser" "*"
+
 "@vibrant/color@^3.2.1-alpha.1":
   "integrity" "sha512-cvm+jAPwao2NerTr3d1JttYyLhp3eD/AQBeevxF7KT6HctToWZCwr2AeTr003/wKgbjzdOV1qySnbyOeu+R+Jw=="
   "resolved" "https://registry.npmjs.org/@vibrant/color/-/color-3.2.1-alpha.1.tgz"
@@ -700,6 +712,14 @@
   "integrity" "sha1-4Fpj95amwf8l9Hcex62twUjAcjM="
   "resolved" "https://registry.npmjs.org/bmp-js/-/bmp-js-0.1.0.tgz"
   "version" "0.1.0"
+
+"bottomify@^0.3.0":
+  "integrity" "sha512-FGXduYAOAzrt2b2pRAR617GcfUdZlc+Z5D1FPp5D3MnUKJMKxSVS/pSu5P9yDByRbp+lIVBRcO0lhvDw6+X5ZQ=="
+  "resolved" "https://registry.npmjs.org/bottomify/-/bottomify-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "@types/yargs" "^15.0.12"
+    "yargs" "^16.2.0"
 
 "boxen@^5.0.0":
   "integrity" "sha512-9gYgQKXx+1nP8mP7CzFyaUARhg7D3n1dF/FnErWmu9l6JvGpNUN278h0aSb+QjoiKSWG+iZ3uHrcqk0qrY9RQQ=="
@@ -3153,7 +3173,7 @@
   "resolved" "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
   "version" "20.2.9"
 
-"yargs@^16.1.1":
+"yargs@^16.1.1", "yargs@^16.2.0":
   "integrity" "sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw=="
   "resolved" "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
   "version" "16.2.0"
