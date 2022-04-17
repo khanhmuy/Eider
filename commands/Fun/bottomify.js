@@ -1,5 +1,4 @@
 const {encode, decode} = require('bottomify');
-const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'bottomify',
     description: 'Bottomify some text',
@@ -17,12 +16,7 @@ module.exports = {
                 });
             } else {
                 const text = encode(args.join(' '));
-                const embed = new MessageEmbed()
-                    .setAuthor(message.author.username, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
-                    .setColor('BLUE')
-                    .setDescription(text);
-                message.delete();
-                message.channel.send({embeds: [embed]});
+                message.channel.send({content: text, allowedMentions: { repliedUser: false }});
             }
         } catch (error) {
             console.log(error);

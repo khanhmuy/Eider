@@ -18,10 +18,10 @@ module.exports = {
 		client.data.set(`guild.${message.guild.id}.suggestChannel`, channel);
 		const replyChannel = ('<#' + client.data.get(`guild.${message.guild.id}.suggestChannel`) + '>');
 		const embed = new MessageEmbed()
-			.setTitle('Suggestions channel is now')
+			.setTitle('Success!')
 			.setColor('GREEN')
 			.setTimestamp()
-			.setDescription(replyChannel);
+			.setDescription(`Suggestion channel is now ${replyChannel}`);
 		message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 	},
 };

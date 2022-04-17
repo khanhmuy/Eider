@@ -1,5 +1,4 @@
 const {encode, decode} = require('bottomify');
-const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'debottomify',
     description: 'De-bottomify',

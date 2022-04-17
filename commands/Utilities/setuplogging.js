@@ -3,6 +3,7 @@ module.exports = {
     name: 'loggingsetup',
     description: 'Setup logging for this guild',
     usage: 'loggingsetup <channel>',
+    aliases: ['loggingsetup', 'setuplogging', 'setuplogs', 'logssetup'],
     cooldown: 10,
     args: 1,
     permissions: [Permissions.FLAGS.ADMINISTRATOR],
@@ -18,10 +19,10 @@ module.exports = {
         client.data.set(`guild.${message.guild.id}.logChannel`, channel);
         const replyChannel = ('<#' + client.data.get(`guild.${message.guild.id}.logChannel`) + '>');
         const embed = new MessageEmbed()
-            .setTitle('Logging channel is now')
+            .setTitle('Success!')
             .setColor('GREEN')
             .setTimestamp()
-            .setDescription(replyChannel);
+            .setDescription(`Logging channel is now ${replyChannel}`);
         message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
     }
 };
