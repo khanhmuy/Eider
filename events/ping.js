@@ -10,7 +10,7 @@ module.exports = {
 			const about = new MessageEmbed()
 				.setTitle('Hi! I\'m **Eider**. A fully free and open source Discord bot.')
 				.setDescription('I\'m a Discord Bot made by CallMeEcho#0253 and modified by [hmuy#4638](https://discord.com/users/272388882539085824) on `v1`\'s code, built with [Node.js](https://nodejs.org) and [Discord.js](https://discord.js.org).\nMy prefix is currently `' + prefix + '`')
-				.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
+				.setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
 				.setColor('#C0DDFF')
 				.addField('To get started:', 'Use `' + prefix + 'help` to see all my commands.')
 				.setFooter('Thank you for adding Eider to your server(s), we really appreciate it!');

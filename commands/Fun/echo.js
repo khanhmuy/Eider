@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-
 module.exports = {
 	name: 'echo',
 	description: 'make me say something stupid ig',

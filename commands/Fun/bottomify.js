@@ -16,7 +16,7 @@ module.exports = {
                 });
             } else {
                 const text = encode(args.join(' '));
-                message.channel.send({content: text, allowedMentions: { repliedUser: false }});
+                message.reply({content: text, allowedMentions: { repliedUser: false }});
             }
         } catch (error) {
             console.log(error);

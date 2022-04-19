@@ -1,4 +1,4 @@
-// this is kind of a fucking bodge but ok
+// this is a fucking bodge but ok
 const ytdl = require('ytdl-core');
 const axios = require('axios');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');

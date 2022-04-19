@@ -4,7 +4,7 @@ module.exports = {
     description: 'De-bottomify',
     cooldown: 2,
     usage: 'bottomify <text>',
-    aliases: [ 'debottomify', 'debottomifytext', 'debottomifytext', 'debottom' ],
+    aliases: [ 'debottomify', 'debottomifytext', 'debottomifytext', 'debottom', 'unbottomify', 'unbottom' ],
     execute(client, message, args) {
         try {
             if (!args[0]) {

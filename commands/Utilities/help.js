@@ -1,7 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const chalk = require('chalk');
-
 module.exports = {
 	name: 'help',
 	description: 'Help Command',
@@ -14,7 +13,7 @@ module.exports = {
 				.setColor('#C0DDFF')
 				.setTitle('Commands')
 				.setDescription(`Run \`${prefix}help [command]\` to see command info.`)
-				//.setThumbnail('https://cdn.discordapp.com/attachments/858855894204678206/874231112686247956/eider-animate.gif')
+				.setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
 				.setTimestamp()
 				.setFooter('Last updated');
 			const commandFolders = fs.readdirSync('./commands');
@@ -29,11 +28,9 @@ module.exports = {
 					const command = require(`../../commands/${folder}/${file}`);
 					array.push(`\`${prefix}${command.name}\``);
 				}
-
 				embed.addField(folder, array.join(', '), true);
 			}
 			message.reply({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
-
 		} else {
 			const search = args.join(' ');
 			const results = new Array();
@@ -70,10 +67,13 @@ module.exports = {
 			try {
 			const embed = new MessageEmbed()
 				.setTitle(`${prefix + command.name}`)
+				.setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
 				.setDescription(command.description)
 				.addField('Aliases', aliases, true)
 				.addField('Usage', usage, true)
-				.setColor('#C0DDFF');
+				.setColor('#C0DDFF')
+				.setTimestamp()
+				.setFooter('Last updated');
 			message.reply({ embeds: [ embed ], allowedMentions: { repliedUser: false } });
 			} catch (err) {
 				console.log(err);

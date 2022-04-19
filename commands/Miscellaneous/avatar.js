@@ -2,9 +2,9 @@ const Vibrant = require('node-vibrant');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'avatar',
-	description: 'Get the avatar of a user',
+	description: 'Get the profile picture of yourself or another user',
 	usage: 'avatar [user]',
-	cooldown: 2,
+	cooldown: 3,
 	aliases:[ 'av', 'pfp', 'avt', 'getavatar', 'getpfp', 'getavt' ],
 	async execute(client, message, args) {
 		try {
