@@ -10,10 +10,10 @@ module.exports = {
     aliases: ['videoinfo', 'ytvidinfo', 'vidinfo'],
     async execute(client, message, args) {
         if (!args[0]) {
-            message.reply('Please provide a video id or link!');
+            message.reply({content: 'Please provide a video id or link!'});
         } else {
             let embed = '';
-            let id = ';'
+            let id = '';
             if (args[0].match(/https:\/\/www.youtube.com\/watch\?v=./)) {
                 id = args[0].slice(32, 43);
             } if (args[0].match(/https:\/\/youtu.be\/./)) {
@@ -36,7 +36,7 @@ module.exports = {
                     const dislike = await axios.get('https://returnyoutubedislikeapi.com/votes?videoId=' + id);
                     dislikeCount = dislike.data.dislikes
                 } catch {
-                    dislikeCount = 'Not available';
+                    dislikeCount = 'Not available.';
                 }
                 const likeCount = info.videoDetails.likes;
                 const views = info.videoDetails.viewCount;
@@ -51,7 +51,7 @@ module.exports = {
                 try {
                     const rawDescription = info.videoDetails.description;
                     var descriptionLength = rawDescription.length;
-                    if (rawDescription.length > 995) {
+                    if (rawDescription.length > 3995) {
                         description = rawDescription.slice(0, 995) + ' (...)';
                     } else {
                         description = rawDescription;
@@ -65,6 +65,7 @@ module.exports = {
                     .setURL(link)
                     .setThumbnail(thumbnail)
                     .setTimestamp()
+                    .setDescription(description)
                     .addFields(
                         { name: 'Date created: ', value: "" + uploadDate, inline: true },
                         { name: 'Duration:', value: '' + duration, inline: true },
@@ -72,7 +73,6 @@ module.exports = {
                         { name: '👀', value: "" + views, inline: true },
                         { name: '👍', value: "" + likeCount, inline: true },
                         { name: '👎', value: "" + dislikeCount, inline: true },
-                        { name: 'Description:', value: '' + description},
                         { name: 'Channel: ', value: "" + '[' + channel + '](' + channelUrl + ')', inline: true },
                         { name: 'Subscribers: ', value: "" + subs , inline: true },
                     )
