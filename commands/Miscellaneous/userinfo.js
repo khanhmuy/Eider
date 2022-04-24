@@ -11,7 +11,6 @@ module.exports = {
         let status = 'Offline / Invisible';
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0])|| message.member;
             user = member.user;
-            console.log(member, user);
         try {
             switch(member.presence.status){
                 case('online'):
@@ -42,8 +41,8 @@ module.exports = {
             .setThumbnail(user.displayAvatarURL({ dynamic:true })+'?size=1024')
             .setDescription('[Avatar](' + user.displayAvatarURL({ dynamic:true })+'?size=1024' + ')')
             .addFields(
-                { name: 'Account created at', value: moment(user.createdAt).format('LLLL'), inline: true },
-                { name: 'Joined this server at', value: moment(user.joinedAt).format('LLLL'), inline: true },
+                { name: 'Account Registered Date', value: moment(user.createdAt).format('LLLL'), inline: true },
+                { name: 'Joined Server Join Date', value: moment(member.joinedAt).format('LLLL'), inline: true },
                 { name: 'Online presence', value: '' + status || 'Offline / Invisible', inline: true },
                 { name: 'Roles', value: '' + roles, inline: true },
                 { name: 'Account identification', value: 'Tag: ' + user.tag + '\nID: ' + user.id, inline: true },

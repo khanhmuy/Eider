@@ -13,7 +13,6 @@ module.exports = {
             if (!query) {
                 message.reply({content: 'Please enter a search term!', allowedMentions: { repliedUser: false }});
             } else {
-                const wait = await message.channel.send('Searching Wikipedia...');
                 const res = await tldr(query)
                 let color = null
                 let thumbnail = ''
@@ -39,10 +38,8 @@ module.exports = {
                     .setColor(color)
                     .setTimestamp()
                 message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
-                wait.delete();
             }
         } catch (error) {
-            wait.delete();
             console.log(error);
             message.reply('No results found!').then(x => {
                 setTimeout(() => {
