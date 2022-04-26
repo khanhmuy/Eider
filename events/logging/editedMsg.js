@@ -3,7 +3,19 @@ module.exports = {
     name: 'messageUpdate',
     async execute (client, message) {
         try {
-            let logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
+            try {
+                if (embedType === 'image' || 'video') {};
+                const embedType = message.reactions.message.embeds[1].type;
+            } catch {}
+            const fetchedLogs = await message.guild.fetchAuditLogs({
+                limit: 1,
+                type: 'MESSAGE_DELETE',
+            });
+            const deletionLog = fetchedLogs.entries.first();
+            const { executor, target } = deletionLog;
+            const executorID = executor.id;
+            if (executorID === client.user.id) {};
+            const logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
             if (logChannel === undefined) return;
             let deleteEmbed = new MessageEmbed()
                 .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
@@ -14,6 +26,7 @@ module.exports = {
                 .addField(`Message ID`, `${message.id}`, true)
                 .addField(`Author`, `<@!${message.author.id}>`, true)
                 .addField(`Author ID`, `${message.author.id}`, true)
+                .addField(`Deleted by`, `<@!${executor.id}>`, true)
                 .setFooter(`${message.guild.name}`)
                 .setTimestamp();
             logChannel.send({embeds: [deleteEmbed]});
