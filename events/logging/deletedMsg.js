@@ -4,10 +4,7 @@ module.exports = {
     async execute (client, message) {
         const logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
         try {
-<<<<<<< HEAD
-=======
             const logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
->>>>>>> 54c2640f3cc7680942eda927cd785f9744c1a5bc
             if (logChannel === undefined) return;
             const fetchedLogs = await message.guild.fetchAuditLogs({
                 limit: 1,
@@ -28,7 +25,6 @@ module.exports = {
                 .setTimestamp();
             logChannel.send({embeds: [deleteEmbed]});
         } catch (err) {
-<<<<<<< HEAD
             try {
                 if (message.reactions.message.embeds.type = 'rich') {
                     logChannel.send({content:`:wastebasket: Embed deleted in <#${message.channelId}>\nMessage ID: ${message.id}\nAuthor: <@!${message.author.id}>\nAuthor ID: ${message.author.id}\nEmbeds:\n`, embeds: message.reactions.message.embeds});
@@ -36,9 +32,7 @@ module.exports = {
             } catch (err) {
                 console.log(err);
             }
-=======
             console.log(err);
->>>>>>> 54c2640f3cc7680942eda927cd785f9744c1a5bc
         }
     },
 };
