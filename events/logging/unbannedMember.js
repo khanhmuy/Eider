@@ -9,7 +9,7 @@ module.exports = {
                 .setAuthor(member.user.username + '#' + member.user.discriminator, `${member.user.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`<@!${member.user.id}> has been unbanned from the server.`)
                 .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}?size=1024`)
-                .setColor('RED')
+                .setColor('BLUE')
                 .setFooter(`${member.guild.name}`)
                 .setTimestamp();
             logChannel.send({embeds: [embed]});

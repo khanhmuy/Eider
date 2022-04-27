@@ -11,7 +11,7 @@ module.exports = {
                 .setDescription(`:airplane_arriving: <@!${member.user.id}> has joined the server.`)
                 .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .addField(`Age of account`, `**${moment(member.user.createdAt).format('LLLL')}\n${moment().diff(member.user.createdAt, 'years')} years ago**`, true)
-                .setColor('BLUE')
+                .setColor('GREEN')
                 .setFooter(`${member.guild.name}`)
                 .setTimestamp();
             logChannel.send({embeds: [embed]});

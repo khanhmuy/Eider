@@ -9,7 +9,7 @@ module.exports = {
                 .setAuthor(member.user.username + '#' + member.user.discriminator, `${member.user.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`:airplane: <@!${member.user.id}> has left the server.`)
                 .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}?size=1024`)
-                .setColor('BLUE')
+                .setColor('YELLOW')
                 .setFooter(`${member.guild.name}`)
                 .setTimestamp();
             logChannel.send({embeds: [embed]});

@@ -15,7 +15,7 @@ module.exports = {
             let deleteEmbed = new MessageEmbed()
                 .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`:wastebasket: Message deleted in <#${message.channelId}>`)
-                .setColor("BLUE")
+                .setColor("RED")
                 .addField("Message", `${message.content}`)
                 .addField(`Message ID`, `${message.id}`, true)
                 .addField(`Author`, `<@!${message.author.id}>`, true)
