@@ -29,7 +29,7 @@ module.exports = {
                 .addField(`Deleted by`, `<@!${executor.id}>`, true)
                 .setFooter(`${message.guild.name}`)
                 .setTimestamp();
-            logChannel.send({embeds: [deleteEmbed]});
+            logChannel.send({content: '----------Start of log----------',embeds: [deleteEmbed]});
         } catch (err) {
             console.log(err);
         }

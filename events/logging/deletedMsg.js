@@ -23,11 +23,11 @@ module.exports = {
                 .addField(`Deleted by`, `<@!${executor.id}>`, true)
                 .setFooter(`${message.guild.name}`)
                 .setTimestamp();
-            logChannel.send({embeds: [deleteEmbed]});
+            logChannel.send({content: '----------Start of log----------',embeds: [deleteEmbed]});
         } catch (err) {
             try {
                 if (message.reactions.message.embeds.type = 'rich') {
-                    logChannel.send({content:`:wastebasket: Embed deleted in <#${message.channelId}>\nMessage ID: ${message.id}\nAuthor: <@!${message.author.id}>\nAuthor ID: ${message.author.id}\nEmbeds:\n`, embeds: message.reactions.message.embeds});
+                    logChannel.send({content:`----------Start of log----------\n:wastebasket: Embed deleted in <#${message.channelId}>\nMessage ID: ${message.id}\nAuthor: <@!${message.author.id}>\nAuthor ID: ${message.author.id}\nEmbeds:\n`, embeds: message.reactions.message.embeds});
                 };
             } catch (err) {
                 console.log(err);
