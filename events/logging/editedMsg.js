@@ -26,7 +26,6 @@ module.exports = {
                 .addField(`Message ID`, `${message.id}`, true)
                 .addField(`Author`, `<@!${message.author.id}>`, true)
                 .addField(`Author ID`, `${message.author.id}`, true)
-                .addField(`Edited by (not 100% accurate)`, `<@!${executor.id}>`, true)
                 .setFooter(`${message.guild.name}`)
                 .setTimestamp();
             logChannel.send({content: '----------Start of log----------',embeds: [deleteEmbed]});
