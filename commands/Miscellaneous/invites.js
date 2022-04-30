@@ -12,7 +12,6 @@ module.exports = {
         try {
             const guild = await message.guild.fetch();
             const invites = await message.guild.invites.fetch();
-            console.log(invites);
             const embed = new MessageEmbed()
                 .setTitle(`Invites for ${message.guild.name}`)
                 .setThumbnail(guild.iconURL())
