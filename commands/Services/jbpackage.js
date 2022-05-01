@@ -48,7 +48,7 @@ module.exports = {
                             { name: 'Version', value: info.data.data[0].latestVersion.toString() || 'Unknown', inline: true },
                             { name: 'Price', value: info.data.data[0].price.toString() || 'Unknown', inline: true },
                             { name: 'Bundle ID', value: info.data.data[0].identifier.toString(), inline: true },
-                            { name: 'Repository', value: '[' + info.data.data[0].repository.name + ']' + '(' + info.data.data[0].repository.uri + ')', inline: true },
+                            { name: 'Repository', value: `[${info.data.data[0].repository.name}](${info.data.data[0].repository.uri})\n${info.data.data[0].repository.uri}`, inline: true },
                         )
                         .setFooter('Powered by Canister')
                         .setTimestamp()
@@ -60,35 +60,7 @@ module.exports = {
                                 .setEmoji('🔍')
                                 .setLabel('View Depiction')
                         );
-                    const row2 = new MessageActionRow()
-                        .addComponents(
-                            new MessageButton()
-                                .setEmoji('955600590824685679')
-                                .setStyle('LINK')
-                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=saily&repo=${info.data.data[0].repository.uri}`)
-                                .setLabel('Add Repo To Saily'),
-                            new MessageButton()
-                                .setEmoji('931391570320715887')
-                                .setStyle('LINK')
-                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=cydia&repo=${info.data.data[0].repository.uri}`)
-                                .setLabel('Add Repo To Cydia'),
-                            new MessageButton()
-                                .setStyle('LINK')
-                                .setURL('https://sharerepo.stkc.win/v2/?pkgman=sileo&repo=' + info.data.data[0].repository.uri)
-                                .setEmoji('931390952411660358')
-                                .setLabel('Add Repo To Sileo'),
-                            new MessageButton()
-                                .setEmoji('931391570639478834')
-                                .setStyle('LINK')
-                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=zebra&repo=${info.data.data[0].repository.uri}`)
-                                .setLabel('Add Repo To Zebra'),
-                            new MessageButton()
-                                .setEmoji('931391570404573235')
-                                .setStyle('LINK')
-                                .setURL(`https://sharerepo.stkc.win/v2/?pkgman=installer&repo=${info.data.data[0].repository.uri}`)
-                                .setLabel('Add Repo To Installer')
-                        )
-                    message.reply({ embeds: [embed], components:[row, row2] , allowedMentions: { repliedUser: false } });
+                    message.reply({ embeds: [embed], components:[row] , allowedMentions: { repliedUser: false } });
                     wait.delete();
                 } catch(error) {
                     console.log(error)

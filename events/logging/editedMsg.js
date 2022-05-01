@@ -9,12 +9,13 @@ module.exports = {
             } catch {}
             const fetchedLogs = await message.guild.fetchAuditLogs({
                 limit: 1,
-                type: 'MESSAGE_DELETE',
+                type: 'MESSAGE_UPDATE',
             });
             const deletionLog = fetchedLogs.entries.first();
             const { executor, target } = deletionLog;
             const executorID = executor.id;
             if (executorID === client.user.id) {};
+            if (message.webhookId) {};
             const logChannel = client.channels.cache.get(client.data.get(`guild.${message.guild.id}.logChannel`));
             if (logChannel === undefined) return;
             let deleteEmbed = new MessageEmbed()
