@@ -57,8 +57,9 @@ module.exports = {
 			wait.delete();
 		} catch(error) {
 			console.log(error);
-			message.reply('An error occurred!').then(x => {
+			message.reply({content: 'An error occurred!', allowedMentions: { repliedUser: false }}).then(x => {
 				setTimeout(() => {
+					wait.delete();
 					message.delete();
 					x.delete();
 				}, 4000);
