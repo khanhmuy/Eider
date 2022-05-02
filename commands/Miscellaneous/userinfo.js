@@ -41,8 +41,8 @@ module.exports = {
             .setThumbnail(user.displayAvatarURL({ dynamic:true })+'?size=1024')
             .setDescription('[Avatar](' + user.displayAvatarURL({ dynamic:true })+'?size=1024' + ')')
             .addFields(
-                { name: 'Account Registered Date', value: moment(user.createdAt).format('LLLL'), inline: true },
-                { name: 'Joined Server Join Date', value: moment(member.joinedAt).format('LLLL'), inline: true },
+                { name: 'Account Registered Date', value: `${moment(user.createdAt).format('LLLL')} (${moment().diff(user.createdAt, 'years')} years ago)`, inline: true },
+                { name: 'Joined Server Join Date', value: `${moment(member.createdAt).format('LLLL')} (${moment().diff(member.createdAt, 'years')} years ago)`, inline: true },
                 { name: 'Online presence', value: '' + status || 'Offline / Invisible', inline: true },
                 { name: 'Roles', value: '' + roles, inline: true },
                 { name: 'Account identification', value: 'Tag: ' + user.tag + '\nID: ' + user.id, inline: true },
