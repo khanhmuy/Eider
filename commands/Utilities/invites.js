@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['invites', 'invitations', 'serverinvite', 'serverinvitations'],
     cooldown: 5,
     guildOnly: true,
-    permissions: [ Permissions.FLAGS.CREATE_INSTANT_INVITE ],
+    permissions: [ Permissions.FLAGS.ADMINISTRATOR ],
     async execute(client, message, args) {
         try {
             const guild = await message.guild.fetch();
