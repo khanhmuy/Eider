@@ -12,8 +12,8 @@ module.exports = {
             });
             const deletionLog = fetchedLogs.entries.first();
             const { executor, target } = deletionLog;
-            if (executor.id === '559426966151757824') {};
-            if (executor.id === client.user.id) {};
+            if (executor.id === '559426966151757824') return;
+            if (executor.id === client.user.id) return;
             let deleteEmbed = new MessageEmbed()
                 .setAuthor(message.author.username + '#' + message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true })}?size=1024`)
                 .setDescription(`:wastebasket: Message deleted in <#${message.channelId}>`)

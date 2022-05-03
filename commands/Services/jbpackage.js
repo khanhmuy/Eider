@@ -58,7 +58,12 @@ module.exports = {
                                 .setStyle('LINK')
                                 .setURL(info.data.data[0].depiction || 'https://404.github.io/')
                                 .setEmoji('🔍')
-                                .setLabel('View Depiction')
+                                .setLabel('View Depiction'),
+                            new MessageButton()
+                                .setStyle('LINK')
+                                .setURL(`https://repos.slim.rocks/repo/?repoUrl=${info.data.data[0].repository.uri}`)
+                                .setEmoji('📦')
+                                .setLabel('Add Repository'),
                         );
                     message.reply({ embeds: [embed], components:[row] , allowedMentions: { repliedUser: false } });
                     wait.delete();
