@@ -1,3 +1,4 @@
+## Archived. It's been very fun and I learnt a lot of things, but honestly life and health got in the way and I lost much of my interest in coding last year so- Besides, there's [toast](https://github.com/khanhmuy/toast) with a better UX and Discord.js v14 anyway lol
 # eider_hmuy
 Fun Discord bot I guess.
 - [Invite link](https://hmuy.ml/eider/) (try refreshing if it doesn't work)
